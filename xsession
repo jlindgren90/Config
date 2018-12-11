@@ -15,4 +15,4 @@ keepassxc &
 nm-applet &
 quick-settings &
 volumeicon &
-openbox
+exec openbox
