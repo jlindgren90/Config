@@ -1,0 +1,22 @@
+#!/bin/bash
+
+for path in /sys/class/power_supply/ADP1
+do
+    read -r ONLINE < $path/online
+done
+
+read -r OVERRIDE < /etc/brightness-override
+read -r MAX < /sys/class/backlight/intel_backlight/max_brightness
+
+if test x$OVERRIDE != x ; then
+    echo $(($MAX * $OVERRIDE / 100)) > /sys/class/backlight/intel_backlight/brightness
+else
+    case $ONLINE in
+        0)
+            echo $(($MAX * 30 / 100)) > /sys/class/backlight/intel_backlight/brightness
+            ;;
+        1)
+            echo $MAX > /sys/class/backlight/intel_backlight/brightness
+            ;;
+    esac
+fi
