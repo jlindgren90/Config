@@ -226,6 +226,12 @@
         <command>sh -c "wmctrl -x -a galculator || exec galculator"</command>
       </action>
     </keybind>
+    <!-- Quits OpenBox -->
+    <keybind key="W-Q">
+      <action name="Exit">
+        <prompt>yes</prompt>
+      </action>
+    </keybind>
   </keyboard>
   <applications>
     <!-- Let new windows receive focus -->
