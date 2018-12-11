@@ -2,7 +2,7 @@
 
 xrdb ~/.Xresources
 
-systemd-run --user --wait \
+exec systemd-run --user --wait \
  -EDISPLAY="$DISPLAY" \
  -EPATH="$PATH" \
  -EQT_QPA_PLATFORMTHEME=gtk2 \
