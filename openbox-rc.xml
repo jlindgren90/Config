@@ -226,10 +226,16 @@
         <command>sh -c "wmctrl -x -a galculator || exec galculator"</command>
       </action>
     </keybind>
-    <!-- Quits OpenBox -->
+    <!-- Quit actions -->
     <keybind key="W-Q">
       <action name="Exit">
         <prompt>yes</prompt>
+      </action>
+    </keybind>
+    <keybind key="W-S">
+      <action name="Execute">
+        <prompt>Are you sure you want to shut down the computer?</prompt>
+        <command>poweroff</command>
       </action>
     </keybind>
   </keyboard>
