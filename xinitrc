@@ -24,4 +24,5 @@ keepassxc &
 nm-applet &
 quick-settings &
 volumeicon &
+lxpolkit &
 exec openbox
