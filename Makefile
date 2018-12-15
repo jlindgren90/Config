@@ -32,6 +32,8 @@ install-user:
 	${CP} setup-desktop ${HOME}/bin/
 	${RM} ${HOME}/bin/shorten
 	${CP} shorten ${HOME}/bin/
+	${MKDIR} ${HOME}/.config/geany/colorschemes
+	${CP} kugel.conf ${HOME}/.config/geany/colorschemes/
 	${MKDIR} ${HOME}/.config/openbox
 	${CP} openbox-rc.xml ${HOME}/.config/openbox/rc.xml
 
