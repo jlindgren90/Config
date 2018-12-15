@@ -27,8 +27,10 @@ install-user:
 	${MKDIR} ${HOME}/bin
 	${CP} check-backup ${HOME}/bin/
 	${CP} clutter.sh ${HOME}/bin/
+	${RM} ${HOME}/bin/quick-settings
 	${CP} quick-settings ${HOME}/bin/
 	${CP} setup-desktop ${HOME}/bin/
+	${RM} ${HOME}/bin/shorten
 	${CP} shorten ${HOME}/bin/
 	${MKDIR} ${HOME}/.config/openbox
 	${CP} openbox-rc.xml ${HOME}/.config/openbox/rc.xml
