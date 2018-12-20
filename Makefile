@@ -1,6 +1,7 @@
 CC = gcc
 CFLAGS = -std=c99 -Wall -O2 -g
-GTK_CFLAGS = $(shell pkg-config --cflags --libs gtk+-2.0)
+GTK_CFLAGS = $(shell pkg-config --cflags gtk+-2.0)
+GTK_LIBS = $(shell pkg-config --libs gtk+-2.0)
 MKDIR = mkdir -p
 RM = rm -f
 CP = cp --preserve=mode,timestamps
@@ -11,7 +12,7 @@ CHMOD = chmod
 all: quick-settings shorten
 
 quick-settings: quick-settings.c
-	${CC} ${CFLAGS} ${GTK_CFLAGS} -o quick-settings quick-settings.c
+	${CC} ${CFLAGS} ${GTK_CFLAGS} -o quick-settings quick-settings.c ${GTK_LIBS}
 
 shorten: shorten.c
 	${CC} ${CFLAGS} -o shorten shorten.c
