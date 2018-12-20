@@ -14,9 +14,9 @@ export SAL_USE_VCLPLUGIN=gtk
 
 xrdb ~/.Xresources
 
+xsettingsd &
 setup-desktop
 srandrd setup-desktop
-xfsettingsd
 
 compton &
 xfce4-panel &

@@ -4,6 +4,7 @@ GTK_CFLAGS = $(shell pkg-config --cflags --libs gtk+-2.0)
 MKDIR = mkdir -p
 RM = rm -f
 CP = cp --preserve=mode,timestamps
+LN = ln -sf
 CHOWN = chown
 CHMOD = chmod
 
@@ -22,9 +23,15 @@ install-user:
 	${CP} bash_profile ${HOME}/.bash_profile
 	${CP} quick-settings.ini ${HOME}/.quick-settings.ini
 	${CP} profile ${HOME}/.profile
-	${CP} Xresources ${HOME}/.Xresources
+	${CP} Xresources-96dpi ${HOME}/.Xresources-96dpi
+	${CP} Xresources-128dpi ${HOME}/.Xresources-128dpi
+	${LN} .Xresources-96dpi ${HOME}/.Xresources
 	${CP} xinitrc ${HOME}/.xinitrc
+	${CP} xsettingsd-96dpi ${HOME}/.xsettingsd-96dpi
+	${CP} xsettingsd-128dpi ${HOME}/.xsettingsd-128dpi
+	${LN} .xsettingsd-96dpi ${HOME}/.xsettingsd
 	${MKDIR} ${HOME}/bin
+	${CP} chdpi ${HOME}/bin/
 	${CP} check-backup ${HOME}/bin/
 	${CP} clutter.sh ${HOME}/bin/
 	${RM} ${HOME}/bin/quick-settings
