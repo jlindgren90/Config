@@ -8,3 +8,4 @@ Gtk/ToolbarStyle "icons"
 Net/IconThemeName "gnome"
 Net/ThemeName "Therapy"
 Xft/DPI 98304
+Xft/HintStyle "hintslight"
