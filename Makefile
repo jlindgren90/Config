@@ -34,8 +34,13 @@ install-user:
 	${CP} shorten ${HOME}/bin/
 	${MKDIR} ${HOME}/.config/geany/colorschemes
 	${CP} kugel.conf ${HOME}/.config/geany/colorschemes/
+	${MKDIR} ${HOME}/.config/menus
+	${CP} programs.menu ${HOME}/.config/menus/
 	${MKDIR} ${HOME}/.config/openbox
 	${CP} openbox-rc.xml ${HOME}/.config/openbox/rc.xml
+	${MKDIR} ${HOME}/.local/share/applications
+	${CP} logout.desktop ${HOME}/.local/share/applications/
+	${CP} run.desktop ${HOME}/.local/share/applications/
 
 install-system:
 	${CP} asound.conf.hdmi /etc
