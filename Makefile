@@ -62,4 +62,5 @@ install-system:
 	${CP} backlight.rules /etc/udev/rules.d/
 	${CP} powersave.rules /etc/udev/rules.d/
 	${CP} compton.conf /etc/xdg/
+	${CP} logitech.conf /etc/X11/xorg.conf.d/
 	${CP} adjust-brightness /usr/bin/adjust-brightness
