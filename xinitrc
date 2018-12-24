@@ -13,6 +13,7 @@ export QT_QPA_PLATFORMTHEME=gtk2
 export SAL_USE_VCLPLUGIN=gtk
 
 xrdb ~/.Xresources
+numlockx
 
 xsettingsd &
 setup-desktop
