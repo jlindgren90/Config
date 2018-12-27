@@ -5,6 +5,7 @@ Gtk/IconSizes "gtk-menu=16,16:gtk-button=16,16:gtk-small-toolbar=16,16:gtk-large
 Gtk/MenuImages 1
 Gtk/MonospaceFontName "Monospace 10"
 Gtk/ToolbarStyle "icons"
+Net/DoubleClickTime 500
 Net/IconThemeName "gnome"
 Net/ThemeName "Therapy"
 Xft/DPI 98304
