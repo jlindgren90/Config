@@ -236,12 +236,7 @@
     </keybind>
     <keybind key="Print">
       <action name="Execute">
-        <command>xfce4-screenshooter -f</command>
-      </action>
-    </keybind>
-    <keybind key="A-Print">
-      <action name="Execute">
-        <command>xfce4-screenshooter -w</command>
+        <command>sh -c "maim -uso -b 2 | xclip -selection clipboard -t image/png"</command>
       </action>
     </keybind>
     <keybind key="C-equal">
