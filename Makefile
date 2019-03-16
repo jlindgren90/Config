@@ -26,11 +26,11 @@ install-user:
 	${CP} profile ${HOME}/.profile
 	${CP} Xresources-96dpi ${HOME}/.Xresources-96dpi
 	${CP} Xresources-128dpi ${HOME}/.Xresources-128dpi
-	${LN} .Xresources-96dpi ${HOME}/.Xresources
+	${LN} .Xresources-128dpi ${HOME}/.Xresources
 	${CP} xinitrc ${HOME}/.xinitrc
 	${CP} xsettingsd-96dpi ${HOME}/.xsettingsd-96dpi
 	${CP} xsettingsd-128dpi ${HOME}/.xsettingsd-128dpi
-	${LN} .xsettingsd-96dpi ${HOME}/.xsettingsd
+	${LN} .xsettingsd-128dpi ${HOME}/.xsettingsd
 	${MKDIR} ${HOME}/bin
 	${CP} chdpi ${HOME}/bin/
 	${CP} check-backup ${HOME}/bin/
