@@ -53,8 +53,8 @@ install-user:
 	${CP} run.desktop ${HOME}/.local/share/applications/
 
 install-system:
-	${CP} -r etc ${DESTDIR}
-	${CP} -r usr ${DESTDIR}
+	${CP} -r etc ${DESTDIR}/
+	${CP} -r usr ${DESTDIR}/
 	${CHOWN} root:audio ${DESTDIR}/etc/asound.conf
 	${CHMOD} 0664 ${DESTDIR}/etc/asound.conf
 	${CHOWN} root:video ${DESTDIR}/etc/brightness-override
