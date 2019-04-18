@@ -1,2 +1,4 @@
+pkg/
+*.pkg.tar.gz
 quick-settings
 shorten

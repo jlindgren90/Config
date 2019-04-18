@@ -62,6 +62,8 @@ install-system:
 	${CP} brightness-override ${DESTDIR}/etc/
 	${CHOWN} root:video ${DESTDIR}/etc/brightness-override
 	${CHMOD} 0664 ${DESTDIR}/etc/brightness-override
+	${MKDIR} ${DESTDIR}/etc/fonts
+	${CP} fonts-local.conf ${DESTDIR}/etc/fonts/local.conf
 	${MKDIR} ${DESTDIR}/etc/lightdm/
 	${CP} lightdm-gtk-greeter.conf ${DESTDIR}/etc/lightdm/
 	${MKDIR} ${DESTDIR}/etc/udev/rules.d/
