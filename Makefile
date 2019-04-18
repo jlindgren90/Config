@@ -53,26 +53,9 @@ install-user:
 	${CP} run.desktop ${HOME}/.local/share/applications/
 
 install-system:
-	${MKDIR} ${DESTDIR}/etc
-	${CP} asound.conf.hdmi ${DESTDIR}/etc/
-	${CP} asound.conf.laptop ${DESTDIR}/etc/
-	${CP} asound.conf.laptop ${DESTDIR}/etc/asound.conf
+	${CP} -r etc ${DESTDIR}
+	${CP} -r usr ${DESTDIR}
 	${CHOWN} root:audio ${DESTDIR}/etc/asound.conf
 	${CHMOD} 0664 ${DESTDIR}/etc/asound.conf
-	${CP} brightness-override ${DESTDIR}/etc/
 	${CHOWN} root:video ${DESTDIR}/etc/brightness-override
 	${CHMOD} 0664 ${DESTDIR}/etc/brightness-override
-	${MKDIR} ${DESTDIR}/etc/conf.d
-	${CP} gitweb.conf ${DESTDIR}/etc/conf.d/
-	${MKDIR} ${DESTDIR}/etc/fonts
-	${CP} fonts-local.conf ${DESTDIR}/etc/fonts/local.conf
-	${MKDIR} ${DESTDIR}/etc/lightdm/
-	${CP} lightdm-gtk-greeter.conf ${DESTDIR}/etc/lightdm/
-	${MKDIR} ${DESTDIR}/etc/udev/rules.d/
-	${CP} backlight.rules ${DESTDIR}/etc/udev/rules.d/
-	${CP} powersave.rules ${DESTDIR}/etc/udev/rules.d/
-	${MKDIR} ${DESTDIR}/etc/X11/xorg.conf.d/
-	${CP} dpms.conf ${DESTDIR}/etc/X11/xorg.conf.d/
-	${CP} mouse.conf ${DESTDIR}/etc/X11/xorg.conf.d/
-	${MKDIR} ${DESTDIR}/usr/bin
-	${CP} adjust-brightness ${DESTDIR}/usr/bin/adjust-brightness
