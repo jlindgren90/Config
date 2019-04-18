@@ -62,6 +62,8 @@ install-system:
 	${CP} brightness-override ${DESTDIR}/etc/
 	${CHOWN} root:video ${DESTDIR}/etc/brightness-override
 	${CHMOD} 0664 ${DESTDIR}/etc/brightness-override
+	${MKDIR} ${DESTDIR}/etc/conf.d
+	${CP} gitweb.conf ${DESTDIR}/etc/conf.d/
 	${MKDIR} ${DESTDIR}/etc/fonts
 	${CP} fonts-local.conf ${DESTDIR}/etc/fonts/local.conf
 	${MKDIR} ${DESTDIR}/etc/lightdm/
