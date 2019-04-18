@@ -4,7 +4,7 @@ GTK_CFLAGS = $(shell pkg-config --cflags gtk+-2.0)
 GTK_LIBS = $(shell pkg-config --libs gtk+-2.0)
 MKDIR = mkdir -p
 RM = rm -f
-CP = cp --preserve=mode,timestamps
+CP = cp --preserve=mode
 LN = ln -sf
 CHOWN = chown
 CHMOD = chmod
