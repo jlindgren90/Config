@@ -40,6 +40,8 @@ install-user:
 	${CP} setup-desktop ${HOME}/bin/
 	${RM} ${HOME}/bin/shorten
 	${CP} shorten ${HOME}/bin/
+	${MKDIR} ${HOME}/.config
+	${CP} compton.conf ${HOME}/.config
 	${MKDIR} ${HOME}/.config/geany/colorschemes
 	${CP} kugel.conf ${HOME}/.config/geany/colorschemes/
 	${MKDIR} ${HOME}/.config/menus
@@ -62,7 +64,6 @@ install-system:
 	${CP} lightdm-gtk-greeter.conf /etc/lightdm/
 	${CP} backlight.rules /etc/udev/rules.d/
 	${CP} powersave.rules /etc/udev/rules.d/
-	${CP} compton.conf /etc/xdg/
 	${CP} dpms.conf /etc/X11/xorg.conf.d/
 	${CP} mouse.conf /etc/X11/xorg.conf.d/
 	${CP} adjust-brightness /usr/bin/adjust-brightness
