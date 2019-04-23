@@ -1,5 +1,4 @@
 Gtk/ButtonImages 1
-Gtk/CursorThemeSize 16
 Gtk/FontName "Sans 10"
 Gtk/IconSizes "gtk-menu=16,16:gtk-button=16,16:gtk-small-toolbar=16,16:gtk-large-toolbar=16,16"
 Gtk/MenuImages 1
