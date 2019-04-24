@@ -199,11 +199,6 @@
       <action name="Maximize"/>
     </keybind>
     <!-- Application shortcuts -->
-    <keybind key="C-A-Delete">
-      <action name="Execute">
-        <command>light-locker-command --lock</command>
-      </action>
-    </keybind>
     <keybind key="W-a">
       <action name="Execute">
         <command>xfce4-popup-applicationsmenu</command>
@@ -227,11 +222,6 @@
     <keybind key="W-t">
       <action name="Execute">
         <command>xfce4-terminal</command>
-      </action>
-    </keybind>
-    <keybind key="W-w">
-      <action name="Execute">
-        <command>firefox</command>
       </action>
     </keybind>
     <keybind key="Print">
