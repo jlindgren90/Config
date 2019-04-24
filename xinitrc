@@ -12,10 +12,10 @@ export GTK_OVERLAY_SCROLLING=0
 export QT_QPA_PLATFORMTHEME=gtk2
 export SAL_USE_VCLPLUGIN=gtk
 
-xrdb ~/.Xresources
+xrdb ~/.config/xresources
 numlockx
 
-xsettingsd &
+xsettingsd -c ~/.config/xsettings &
 setup-desktop
 srandrd setup-desktop
 

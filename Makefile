@@ -22,15 +22,8 @@ clean:
 
 install-user:
 	${CP} bash_profile ${HOME}/.bash_profile
-	${CP} quick-settings.ini ${HOME}/.quick-settings.ini
 	${CP} profile ${HOME}/.profile
-	${CP} Xresources-96dpi ${HOME}/.Xresources-96dpi
-	${CP} Xresources-128dpi ${HOME}/.Xresources-128dpi
-	${LN} .Xresources-128dpi ${HOME}/.Xresources
 	${CP} xinitrc ${HOME}/.xinitrc
-	${CP} xsettingsd-96dpi ${HOME}/.xsettingsd-96dpi
-	${CP} xsettingsd-128dpi ${HOME}/.xsettingsd-128dpi
-	${LN} .xsettingsd-128dpi ${HOME}/.xsettingsd
 	${CP} -r home/bin ${HOME}/
 	${RM} ${HOME}/bin/quick-settings
 	${CP} quick-settings ${HOME}/bin/
@@ -38,6 +31,8 @@ install-user:
 	${CP} shorten ${HOME}/bin/
 	${MKDIR} ${HOME}/.config
 	${CP} -r home/config/* ${HOME}/.config/
+	${LN} xresources-128dpi ${HOME}/.config/xresources
+	${LN} xsettings-128dpi ${HOME}/.config/xsettings
 	${MKDIR} ${HOME}/.local
 	${CP} -r home/local/* ${HOME}/.local/
 

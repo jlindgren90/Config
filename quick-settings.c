@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <gtk/gtk.h>
 
-#define KEYFILE_NAME ".quick-settings.ini"
+#define KEYFILE_NAME ".config/quick-settings.ini"
 
 static GKeyFile * keyfile = NULL;
 static GtkWidget * menu = NULL;
