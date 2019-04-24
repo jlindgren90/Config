@@ -9,26 +9,26 @@ LN = ln -sf
 CHOWN = chown
 CHMOD = chmod
 
-all: quick-settings shorten
+all: tools/quick-settings tools/shorten
 
-quick-settings: quick-settings.c
-	${CC} ${CFLAGS} ${GTK_CFLAGS} -o quick-settings quick-settings.c ${GTK_LIBS}
+tools/quick-settings: tools/quick-settings.c
+	${CC} ${CFLAGS} ${GTK_CFLAGS} -o tools/quick-settings tools/quick-settings.c ${GTK_LIBS}
 
-shorten: shorten.c
-	${CC} ${CFLAGS} -o shorten shorten.c
+tools/shorten: tools/shorten.c
+	${CC} ${CFLAGS} -o tools/shorten tools/shorten.c
 
 clean:
-	${RM} quick-settings shorten
+	${RM} tools/quick-settings tools/shorten
 
 install-user:
-	${CP} bash_profile ${HOME}/.bash_profile
-	${CP} profile ${HOME}/.profile
-	${CP} xsession ${HOME}/.xsession
+	${CP} home/bash_profile ${HOME}/.bash_profile
+	${CP} home/profile ${HOME}/.profile
+	${CP} home/xsession ${HOME}/.xsession
 	${CP} -r home/bin ${HOME}/
 	${RM} ${HOME}/bin/quick-settings
-	${CP} quick-settings ${HOME}/bin/
+	${CP} tools/quick-settings ${HOME}/bin/
 	${RM} ${HOME}/bin/shorten
-	${CP} shorten ${HOME}/bin/
+	${CP} tools/shorten ${HOME}/bin/
 	${MKDIR} ${HOME}/.config
 	${CP} -r home/config/* ${HOME}/.config/
 	${LN} xresources-128dpi ${HOME}/.config/xresources
