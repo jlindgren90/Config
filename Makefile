@@ -31,26 +31,15 @@ install-user:
 	${CP} xsettingsd-96dpi ${HOME}/.xsettingsd-96dpi
 	${CP} xsettingsd-128dpi ${HOME}/.xsettingsd-128dpi
 	${LN} .xsettingsd-128dpi ${HOME}/.xsettingsd
-	${MKDIR} ${HOME}/bin
-	${CP} chdpi ${HOME}/bin/
-	${CP} check-backup ${HOME}/bin/
-	${CP} clutter.sh ${HOME}/bin/
+	${CP} -r home/bin ${HOME}/
 	${RM} ${HOME}/bin/quick-settings
 	${CP} quick-settings ${HOME}/bin/
-	${CP} setup-desktop ${HOME}/bin/
 	${RM} ${HOME}/bin/shorten
 	${CP} shorten ${HOME}/bin/
 	${MKDIR} ${HOME}/.config
-	${CP} compton.conf ${HOME}/.config
-	${MKDIR} ${HOME}/.config/geany/colorschemes
-	${CP} kugel.conf ${HOME}/.config/geany/colorschemes/
-	${MKDIR} ${HOME}/.config/menus
-	${CP} programs.menu ${HOME}/.config/menus/
-	${MKDIR} ${HOME}/.config/openbox
-	${CP} openbox-rc.xml ${HOME}/.config/openbox/rc.xml
-	${MKDIR} ${HOME}/.local/share/applications
-	${CP} logout.desktop ${HOME}/.local/share/applications/
-	${CP} run.desktop ${HOME}/.local/share/applications/
+	${CP} -r home/config/* ${HOME}/.config/
+	${MKDIR} ${HOME}/.local
+	${CP} -r home/local/* ${HOME}/.local/
 
 install-system:
 	${CP} -r etc ${DESTDIR}/
