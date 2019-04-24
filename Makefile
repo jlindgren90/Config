@@ -23,7 +23,7 @@ clean:
 install-user:
 	${CP} bash_profile ${HOME}/.bash_profile
 	${CP} profile ${HOME}/.profile
-	${CP} xinitrc ${HOME}/.xinitrc
+	${CP} xsession ${HOME}/.xsession
 	${CP} -r home/bin ${HOME}/
 	${RM} ${HOME}/bin/quick-settings
 	${CP} quick-settings ${HOME}/bin/
