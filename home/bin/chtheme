@@ -1,0 +1,14 @@
+#!/bin/sh
+
+case "$1" in
+    'dark' )
+        sed -i -E 's/Therapy(-light)?/Therapy/' ~/.config/xsettings-96dpi
+        sed -i -E 's/Therapy(-light)?/Therapy/' ~/.config/xsettings-128dpi
+        ;;
+    'light' )
+        sed -i -E 's/Therapy(-light)?/Therapy-light/' ~/.config/xsettings-96dpi
+        sed -i -E 's/Therapy(-light)?/Therapy-light/' ~/.config/xsettings-128dpi
+        ;;
+esac
+
+pkill -HUP xsettingsd
