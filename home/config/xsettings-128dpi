@@ -6,6 +6,6 @@ Gtk/MonospaceFontName "Monospace 10"
 Gtk/ToolbarStyle "icons"
 Net/DoubleClickTime 500
 Net/IconThemeName "gnome"
-Net/ThemeName "Therapy-large"
+Net/ThemeName "Old-Style-128dpi"
 Xft/DPI 131072
 Xft/HintStyle "hintnone"
