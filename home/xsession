@@ -20,7 +20,8 @@ setup-desktop
 srandrd setup-desktop
 
 compton &
-xfce4-panel &
+lxqt-panel &
+lxqt-powermanagement &
 keepassxc &
 nm-applet &
 quick-settings &
