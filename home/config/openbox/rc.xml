@@ -216,7 +216,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>xfrun4</command>
+        <command>xfce4-appfinder -c</command>
       </action>
     </keybind>
     <keybind key="W-t">
