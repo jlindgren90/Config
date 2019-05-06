@@ -21,10 +21,10 @@ srandrd setup-desktop
 
 compton &
 lxqt-panel &
+lxqt-policykit-agent &
 lxqt-powermanagement &
 keepassxc &
 nm-applet &
 quick-settings &
 volumeicon &
-lxpolkit &
 exec openbox
