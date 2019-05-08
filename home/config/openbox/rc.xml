@@ -199,11 +199,6 @@
       <action name="Maximize"/>
     </keybind>
     <!-- Application shortcuts -->
-    <keybind key="W-a">
-      <action name="Execute">
-        <command>xfce4-popup-applicationsmenu</command>
-      </action>
-    </keybind>
     <keybind key="W-e">
       <action name="Execute">
         <command>nemo</command>
