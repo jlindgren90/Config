@@ -38,6 +38,9 @@ install-user:
 
 install-system:
 	${CP} -r etc ${DESTDIR}/
+	${MKDIR} -m0750 ${DESTDIR}/root
+	${CP} root/Xdefaults ${DESTDIR}/root/.Xdefaults
+	${CP} root/gtkrc-2.0 ${DESTDIR}/root/.gtkrc-2.0
 	${CP} -r usr ${DESTDIR}/
 	${CHOWN} root:audio ${DESTDIR}/etc/asound.conf
 	${CHMOD} 0664 ${DESTDIR}/etc/asound.conf
