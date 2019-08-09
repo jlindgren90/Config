@@ -229,6 +229,11 @@
         <command>sh -c "wmctrl -x -a galculator || exec galculator"</command>
       </action>
     </keybind>
+    <keybind key="C-A-Delete">
+      <action name="Execute">
+        <command>j-login-lock</command>
+      </action>
+    </keybind>
     <!-- Quit OpenBox -->
     <keybind key="W-Q">
       <action name="Exit">
