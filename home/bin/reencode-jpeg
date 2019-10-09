@@ -1,0 +1,15 @@
+#!/bin/sh
+
+for i in "$@" ; do
+    exiftran -i -a "$i"
+    convert "$i" -quality 90% "$i-new"
+    oldsize=`stat --printf="%s" "$i"`
+    newsize=`stat --printf="%s" "$i-new"`
+    if test $newsize -lt $((oldsize*9/10)) ; then
+        touch -r "$i" "$i-new"
+        mv "$i-new" "$i"
+    else
+        echo "$i" not reduced
+        rm "$i-new"
+    fi
+done
