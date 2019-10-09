@@ -1,29 +1,36 @@
 #!/bin/sh
 
 root="$HOME/Backup"
+curyear=`date +%Y`
+dir="$1"
 
 for file in * ; do
     found="no"
     loc=""
-    for ((year=2020; year>=2008; year--)) do
-        for dir in "$@" ; do
-            if test -e "$root/$year/$dir/$file" ; then
-                if test "$found" = "no" ; then
-                    found="old"
-                    loc="$year ($dir)"
-                fi
-                if test "$found" = "old" && diff -r "$file" "$root/$year/$dir/$file" > /dev/null ; then
-                    found="yes"
-                    loc="$year ($dir)"
-                fi
+    for ((year=$curyear; year>=2008; year--)) do
+        if test -e "$root/$year/$dir/$file" ; then
+            if test "$found" = "no" ; then
+                found="old"
+                loc="$year ($dir)"
             fi
-        done
+            if test "$found" = "old" && diff -r "$file" "$root/$year/$dir/$file" > /dev/null ; then
+                found="yes"
+                loc="$year ($dir)"
+            fi
+        fi
     done
     case "$found" in
         "no" ) echo " ! $file" ;;
         "old" ) echo " * $file: $loc" ;;
         "yes" ) echo "   $file: $loc" ;;
     esac
+    if test "$found" != "yes" ; then
+        read -p "      Sync $file to $root/$curyear/$dir/? (y/N)" yn
+        case "$yn" in
+            [Yy]* ) rsync -vrt --checksum --del "$file" "$root/$curyear/$dir/" ;;
+            * ) echo "      Skipping $file" ;;
+        esac
+    fi
 done
 
 echo
