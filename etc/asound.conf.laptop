@@ -1,9 +1,6 @@
 pcm.!default {
    type asym
-   playback.pcm {
-      type aeq
-      slave.pcm "hda_out"
-   }
+   playback.pcm "hda_out"
    capture.pcm "hda_in"
 }
 
@@ -11,15 +8,18 @@ pcm.hda_out {
    type plug
    slave.rate 44100
    slave.pcm {
-      type dmix
-      ipc_key 1234
-      ipc_perm 0666
-      slave.format S16_LE
-      slave.channels 2
-      slave.rate 44100
-      slave.period_size 1024
-      slave.buffer_size 16384
-      slave.pcm "hw:0,0"
+      type aeq
+      slave.pcm {
+         type dmix
+         ipc_key 1234
+         ipc_perm 0666
+         slave.format S16_LE
+         slave.channels 2
+         slave.rate 44100
+         slave.period_size 1024
+         slave.buffer_size 16384
+         slave.pcm "hw:0,0"
+      }
    }
 }
 
