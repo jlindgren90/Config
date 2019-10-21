@@ -10,7 +10,7 @@ unset XSESSION_STARTED
 
 export GTK_OVERLAY_SCROLLING=0
 export QT_QPA_PLATFORMTHEME=qt5ct
-export SAL_USE_VCLPLUGIN=gtk
+export SAL_USE_VCLPLUGIN=qt5
 
 xrdb ~/.config/xresources
 numlockx
