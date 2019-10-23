@@ -38,7 +38,7 @@ DoubleTabWidget2ndSeparatorColor=ffff0000
 DoubleTabWidget2ndTabActiveTextColor=ffffffff
 DoubleTabWidget2ndTabBackgroundColor=ffff0000
 DoubleTabWidget2ndTabInactiveTextColor=ff000000
-EditorPlaceholderColor=ffe0dcd8
+EditorPlaceholderColor=ff222222
 FancyToolBarSeparatorColor=60ffffff
 FancyTabBarBackgroundColor=ffff0000
 FancyTabBarSelectedBackgroundColor=ffff0000
@@ -150,13 +150,13 @@ Debugger_WatchItem_ValueChanged=ffc80000
 
 Debugger_Breakpoint_TextMarkColor=ffff4040
 
-Welcome_TextColor=ff000000
+Welcome_TextColor=ffeeeeee
 Welcome_ForegroundPrimaryColor=ff555759
 Welcome_ForegroundSecondaryColor=ff727476
-Welcome_BackgroundColor=fff8f8f8
+Welcome_BackgroundColor=ff222222
 Welcome_ButtonBackgroundColor=ffdfdfdf
-Welcome_DividerColor=ffd6d6d6
-Welcome_HoverColor=ffe8e8e8
+Welcome_DividerColor=ff111111
+Welcome_HoverColor=ff333333
 Welcome_LinkColor=ff5caa15
 Welcome_DisabledLinkColor=textDisabled
 
