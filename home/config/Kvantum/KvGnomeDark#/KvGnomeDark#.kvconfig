@@ -321,7 +321,7 @@ text.focus.color=white
 frame.left=0
 frame.right=0
 frame.top=0
-frame.bottom=1
+frame.bottom=0
 text.shadow=false
 
 [Slider]
@@ -439,24 +439,20 @@ interior=true
 interior.element=menubar
 frame=true
 frame.element=menubar
-frame.left=2
-frame.right=2
 frame.top=0
-frame.bottom=1
+frame.bottom=0
+frame.left=0
+frame.right=0
 
 [MenuBarItem]
 inherits=PanelButtonCommand
 interior=false
 frame=true
 frame.element=menubaritem
-frame.top=2
-frame.bottom=3
-frame.left=2
-frame.right=2
-text.margin.left=4
-text.margin.right=4
-text.margin.top=0
-text.margin.bottom=2
+frame.top=0
+frame.bottom=2
+frame.left=4
+frame.right=4
 text.normal.color=white
 text.focus.color=#3a90eb
 text.shadow=false
