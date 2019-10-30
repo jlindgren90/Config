@@ -231,18 +231,8 @@ indicator.element=resize-grip
 inherits=PanelButtonCommand
 indicator.element=toolbar
 indicator.size=5
-text.margin=0
-interior=true
-frame=true
-interior.element=menubar
-frame.element=menubar
-text.normal.color=white
-text.focus.color=white
-frame.left=0
-frame.right=0
-frame.top=0
-frame.bottom=0
-text.shadow=false
+interior=false
+frame=false
 
 [Slider]
 inherits=PanelButtonCommand
@@ -352,14 +342,8 @@ min_height=0
 
 [MenuBar]
 inherits=PanelButtonCommand
-interior=true
-interior.element=menubar
-frame=true
-frame.element=menubar
-frame.top=0
-frame.bottom=0
-frame.left=0
-frame.right=0
+interior=false
+frame=false
 
 [MenuBarItem]
 inherits=PanelButtonCommand
