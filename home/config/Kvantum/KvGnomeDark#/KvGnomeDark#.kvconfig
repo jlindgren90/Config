@@ -12,6 +12,7 @@ large_icon_size=32
 layout_spacing=5
 left_tabs=true
 merge_menubar_with_toolbar=true
+mirror_doc_tabs=false
 no_inactiveness=true
 progressbar_thickness=4
 scroll_arrows=false
