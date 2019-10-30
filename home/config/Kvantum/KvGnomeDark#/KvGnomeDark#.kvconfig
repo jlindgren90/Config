@@ -30,24 +30,21 @@ toolbar_interior_spacing=2
 toolbutton_style=1
 
 [GeneralColors]
-window.color=#353535
-base.color=#2d2d2d
-alt.base.color=#323232
+window.color=#333333
+base.color=#222222
+alt.base.color=#1b1b1b
 button.color=#333333
-light.color=#5a5a5a
+light.color=#666666
 mid.light.color=#555555
-dark.color=#171717
-mid.color=#3c3c3c
+dark.color=#111111
+mid.color=#444444
 highlight.color=#15539e
-text.color=white
-window.text.color=white
-button.text.color=white
-disabled.text.color=#A0A0A0
-tooltip.text.color=white
+text.color=#eeeeee
+window.text.color=#eeeeee
+button.text.color=#eeeeee
+disabled.text.color=#5d5d5d
+tooltip.text.color=#eeeeee
 highlight.text.color=white
-link.color=#2EB8E6
-link.visited.color=#FF6666
-progress.indicator.text.color=white
 
 [PanelButtonCommand]
 frame=true
@@ -192,7 +189,7 @@ indicator.element=tab
 indicator.size=12
 text.normal.color=#ffffff7d
 text.focus.color=#ffffffb4
-text.toggle.color=white
+text.toggle.color=#eeeeee
 text.bold=true
 
 [TabFrame]
