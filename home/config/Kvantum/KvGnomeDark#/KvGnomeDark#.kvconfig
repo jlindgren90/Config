@@ -56,7 +56,7 @@ frame.right=2
 frame.top=2
 frame.bottom=2
 indicator.element=arrow
-indicator.size=9
+indicator.size=10
 interior.element=button
 interior=true
 text.iconspacing=3
@@ -101,7 +101,6 @@ inherits=PanelButtonCommand
 frame.element=btn
 frame.expandedElement=button
 indicator.element=iarrow
-indicator.size=10
 interior.element=button
 
 [RadioButton]
@@ -133,11 +132,9 @@ interior.element=lineedit
 [DropDownButton]
 inherits=PanelButtonCommand
 indicator.element=arrow-down
-indicator.size=10
 
 [IndicatorArrow]
 indicator.element=arrow
-indicator.size=9
 
 [ToolboxTab]
 inherits=PanelButtonCommand
@@ -152,7 +149,6 @@ interior.element=button
 frame.element=button
 focusFrame=true
 indicator.element=tab
-indicator.size=12
 text.normal.color=#ffffff7d
 text.focus.color=#ffffffb4
 text.toggle.color=#eeeeee
@@ -167,7 +163,6 @@ interior=false
 inherits=PanelButtonCommand
 frame=false
 interior=false
-indicator.size=11
 indicator.element=tree
 
 [HeaderSection]
@@ -266,7 +261,6 @@ indicator.size=32
 [Scrollbar]
 inherits=PanelButtonCommand
 indicator.element=arrow
-indicator.size=10
 
 [ScrollbarSlider]
 inherits=PanelButtonCommand
@@ -329,7 +323,6 @@ min_height=0
 inherits=PanelButtonCommand
 frame=false
 interior.element=titlebar
-indicator.size=12
 indicator.element=mdi
 text.normal.color=#787878
 text.focus.color=white
