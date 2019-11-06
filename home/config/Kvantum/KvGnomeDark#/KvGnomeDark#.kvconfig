@@ -138,7 +138,7 @@ indicator.element=arrow
 
 [ToolboxTab]
 inherits=PanelButtonCommand
-text.normal.color=#888888
+text.normal.color=#aaaaaa
 text.focus.color=#aaaaaa
 text.toggle.color=#eeeeee
 
@@ -148,7 +148,7 @@ indicator.element=tab
 interior.element=button
 frame.element=button
 text.bold=true
-text.normal.color=#888888
+text.normal.color=#aaaaaa
 text.focus.color=#aaaaaa
 text.toggle.color=#eeeeee
 
