@@ -138,32 +138,33 @@ indicator.element=arrow
 
 [ToolboxTab]
 inherits=PanelButtonCommand
-text.normal.color=#ffffffb4
-text.press.color=white
-text.focus.color=white
-text.shadow=false
+text.normal.color=#888888
+text.focus.color=#aaaaaa
+text.toggle.color=#eeeeee
 
 [Tab]
 inherits=PanelButtonCommand
+indicator.element=tab
 interior.element=button
 frame.element=button
-focusFrame=true
-indicator.element=tab
-text.normal.color=#ffffff7d
-text.focus.color=#ffffffb4
-text.toggle.color=#eeeeee
 text.bold=true
+text.normal.color=#888888
+text.focus.color=#aaaaaa
+text.toggle.color=#eeeeee
 
 [TabFrame]
 inherits=PanelButtonCommand
-frame.element=none
+frame.left=0
+frame.right=0
+frame.top=0
+frame.bottom=0
 interior=false
 
 [TreeExpander]
 inherits=PanelButtonCommand
 frame=false
-interior=false
 indicator.element=tree
+interior=false
 
 [HeaderSection]
 inherits=PanelButtonCommand
