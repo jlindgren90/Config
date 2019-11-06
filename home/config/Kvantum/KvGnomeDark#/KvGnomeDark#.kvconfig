@@ -64,7 +64,7 @@ text.margin=1
 text.margin.left=2
 text.margin.right=2
 text.margin.top=2
-text.margin.bottom=2
+text.margin.bottom=3
 text.focus.color=#eeeeee
 text.normal.color=#eeeeee
 text.press.color=#eeeeee
@@ -129,10 +129,6 @@ inherits=PanelButtonCommand
 frame.element=le
 frame.expandedElement=lineedit
 interior.element=lineedit
-text.margin.left=2
-text.margin.right=2
-text.margin.top=3
-text.margin.bottom=4
 
 [DropDownButton]
 inherits=PanelButtonCommand
