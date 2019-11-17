@@ -11,7 +11,7 @@ for THEME in colibre tango ; do
         outfile="${DEST}/${file}"
         echo "Rendering ${file} to ${outfile}"
         mkdir -p "$(dirname "${outfile}")"
-        convert "${file}" -filter mitchell -resize 150% "${outfile}"
+        convert "${file}" -filter lanczos -resize 150% "${outfile}"
     done
 
     if [[ ${THEME} = colibre ]] ; then
