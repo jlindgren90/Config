@@ -5,3 +5,5 @@ xrdb ~/.config/xresources
 
 ln -sf xsettings-"$1"dpi ~/.config/xsettings
 pkill -HUP xsettingsd
+
+ln -sf kvantum.kvconfig-"$1"dpi ~/.config/Kvantum/kvantum.kvconfig
