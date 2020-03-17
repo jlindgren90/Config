@@ -31,11 +31,9 @@ install-user:
 	${CP} tools/shorten ${HOME}/bin/
 	${MKDIR} ${HOME}/.config
 	${CP} -r home/config/* ${HOME}/.config/
-	${LN} xresources-128dpi ${HOME}/.config/xresources
-	${LN} xsettings-128dpi ${HOME}/.config/xsettings
-	${LN} kvantum.kvconfig-128dpi ${HOME}/.config/Kvantum/kvantum.kvconfig
 	${MKDIR} ${HOME}/.local
 	${CP} -r home/local/* ${HOME}/.local/
+	chdpi 128
 
 install-system:
 	${CP} -r etc ${DESTDIR}/
