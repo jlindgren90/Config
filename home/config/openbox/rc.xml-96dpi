@@ -206,7 +206,7 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>xfce4-appfinder -c</command>
+        <command>gmrun</command>
       </action>
     </keybind>
     <keybind key="W-t">

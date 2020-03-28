@@ -3,4 +3,4 @@ Type=Application
 Categories=Session
 Name=Run ...
 Icon=system-run
-Exec=xfce4-appfinder -c
+Exec=gmrun
