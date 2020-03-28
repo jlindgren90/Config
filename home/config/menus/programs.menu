@@ -21,7 +21,7 @@
 
     <Menu>
         <Name>Accessories</Name>
-        <Directory>xfce-accessories.directory</Directory>
+        <Directory>accessories.directory</Directory>
 
         <Include>
             <Category>Utility</Category>
@@ -30,7 +30,7 @@
 
     <Menu>
         <Name>Development</Name>
-        <Directory>xfce-development.directory</Directory>
+        <Directory>development.directory</Directory>
 
         <Include>
             <Category>Development</Category>
@@ -39,7 +39,7 @@
 
     <Menu>
         <Name>Education</Name>
-        <Directory>xfce-education.directory</Directory>
+        <Directory>education.directory</Directory>
 
         <Include>
             <Category>Education</Category>
@@ -48,7 +48,7 @@
 
     <Menu>
         <Name>Games</Name>
-        <Directory>xfce-games.directory</Directory>
+        <Directory>games.directory</Directory>
 
         <Include>
             <Category>Game</Category>
@@ -57,7 +57,7 @@
 
     <Menu>
         <Name>Graphics</Name>
-        <Directory>xfce-graphics.directory</Directory>
+        <Directory>graphics.directory</Directory>
 
         <Include>
             <Category>Graphics</Category>
@@ -66,7 +66,7 @@
 
     <Menu>
         <Name>Multimedia</Name>
-        <Directory>xfce-multimedia.directory</Directory>
+        <Directory>multimedia.directory</Directory>
 
         <Include>
             <Category>Audio</Category>
@@ -77,7 +77,7 @@
 
     <Menu>
         <Name>Network</Name>
-        <Directory>xfce-network.directory</Directory>
+        <Directory>network.directory</Directory>
 
         <Include>
             <Category>Network</Category>
@@ -86,7 +86,7 @@
 
     <Menu>
         <Name>Office</Name>
-        <Directory>xfce-office.directory</Directory>
+        <Directory>office.directory</Directory>
 
         <Include>
             <Category>Office</Category>
@@ -95,7 +95,7 @@
 
     <Menu>
         <Name>Settings</Name>
-        <Directory>xfce-settings.directory</Directory>
+        <Directory>settings.directory</Directory>
 
         <Include>
             <Category>Settings</Category>
@@ -104,7 +104,7 @@
 
     <Menu>
         <Name>System</Name>
-        <Directory>xfce-system.directory</Directory>
+        <Directory>system.directory</Directory>
 
         <Include>
             <Category>System</Category>
