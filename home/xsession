@@ -11,6 +11,7 @@ unset XSESSION_STARTED
 export GTK_OVERLAY_SCROLLING=0
 export QT_LOGGING_RULES="*.debug=false"
 export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_XCB_GL_INTEGRATION=none
 export SAL_USE_VCLPLUGIN=gtk
 
 xrdb ~/.config/xresources
