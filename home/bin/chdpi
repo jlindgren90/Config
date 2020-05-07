@@ -7,5 +7,4 @@ ln -sf xsettings-"$1"dpi ~/.config/xsettings
 pkill -HUP xsettingsd
 
 ln -sf kvantum.kvconfig-"$1"dpi ~/.config/Kvantum/kvantum.kvconfig
-ln -sf panel.conf-"$1"dpi ~/.config/lxqt/panel.conf
 ln -sf rc.xml-"$1"dpi ~/.config/openbox/rc.xml
