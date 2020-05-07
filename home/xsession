@@ -22,7 +22,7 @@ setup-desktop
 srandrd setup-desktop
 
 compton &
-lxqt-panel &
+qmpanel &
 lxqt-policykit-agent &
 lxqt-powermanagement &
 keepassxc &
