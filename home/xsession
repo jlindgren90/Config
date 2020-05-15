@@ -29,4 +29,7 @@ keepassxc &
 nm-applet &
 quick-settings &
 volumeicon &
-exec openbox
+openbox
+
+# kill uncooperative apps
+pkill -kill nemo
