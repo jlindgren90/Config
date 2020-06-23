@@ -13,7 +13,6 @@ pcm.hda_out {
          type dmix
          ipc_key 1234
          ipc_perm 0666
-         tstamp_type "gettimeofday"
          slave.format S16_LE
          slave.channels 2
          slave.rate 44100
