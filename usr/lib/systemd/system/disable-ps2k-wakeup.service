@@ -1,9 +1,0 @@
-[Unit]
-Description=Disable ACPI wakeup from PS/2 keyboard
-
-[Service]
-Type=oneshot
-ExecStart=sh -c 'grep -q \'PS2K.*enabled\' < /proc/acpi/wakeup && echo PS2K > /proc/acpi/wakeup'
-
-[Install]
-WantedBy=multi-user.target
