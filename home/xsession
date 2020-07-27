@@ -27,7 +27,7 @@ qmpanel &
 lxqt-policykit-agent &
 lxqt-powermanagement &
 keepassxc &
-nm-applet &
+cmst -m &
 quick-settings &
 volumeicon &
 openbox
