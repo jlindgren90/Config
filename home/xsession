@@ -24,6 +24,7 @@ srandrd setup-desktop
 
 compton &
 qmpanel &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
 lxqt-policykit-agent &
 lxqt-powermanagement &
 keepassxc &
