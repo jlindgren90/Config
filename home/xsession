@@ -24,8 +24,8 @@ srandrd setup-desktop
 compton &
 qmpanel &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
-lxqt-policykit-agent &
-lxqt-powermanagement &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+cbatticon &
 keepassxc &
 nm-applet &
 quick-settings &
