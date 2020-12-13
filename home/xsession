@@ -2,11 +2,12 @@
 
 systemctl --user import-environment
 
-if test x"$XSESSION_STARTED" = x ; then
-  exec systemd-run --user --wait -EXSESSION_STARTED=1 "$0"
+if test x"$XSESSION_UMASK" = x ; then
+  exec systemd-run --user --wait -EXSESSION_UMASK=$(umask) "$0"
 fi
 
-unset XSESSION_STARTED
+umask "$XSESSION_UMASK"
+unset XSESSION_UMASK
 
 export GTK_OVERLAY_SCROLLING=0
 export QT_ENABLE_HIGHDPI_SCALING=0
