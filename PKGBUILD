@@ -2,6 +2,7 @@ pkgname=config
 pkgver=0.1
 pkgrel=1
 arch=('x86_64')
+install=config.install
 
 depends=('aeq'
          'cbatticon-qt'
