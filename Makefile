@@ -36,12 +36,15 @@ install-user:
 	chdpi 128
 
 install-system:
-	${CP} -r etc ${DESTDIR}/
-	${MKDIR} -m0750 ${DESTDIR}/root
-	${CP} root/Xdefaults ${DESTDIR}/root/.Xdefaults
-	${CP} root/gtkrc-2.0 ${DESTDIR}/root/.gtkrc-2.0
-	${CP} -r usr ${DESTDIR}/
-	${CHOWN} root:audio ${DESTDIR}/etc/asound.conf
-	${CHMOD} 0664 ${DESTDIR}/etc/asound.conf
-	${CHOWN} root:video ${DESTDIR}/etc/brightness-override
-	${CHMOD} 0664 ${DESTDIR}/etc/brightness-override
+	find etc -type d -exec install -d ${DESTDIR}/\{\} \;
+	find etc -type f -exec install -m644 \{\} ${DESTDIR}/\{\} \;
+	find usr -type d -exec install -d ${DESTDIR}/\{\} \;
+	find usr/bin -type f -exec install \{\} ${DESTDIR}/\{\} \;
+	find usr/lib -type f -exec install -m644 \{\} ${DESTDIR}/\{\} \;
+	install -d -m750 ${DESTDIR}/root
+	install -m640 root/Xdefaults ${DESTDIR}/root/.Xdefaults
+	install -m640 root/gtkrc-2.0 ${DESTDIR}/root/.gtkrc-2.0
+	chown root:audio ${DESTDIR}/etc/asound.conf
+	chmod 0664 ${DESTDIR}/etc/asound.conf
+	chown root:video ${DESTDIR}/etc/brightness-override
+	chmod 0664 ${DESTDIR}/etc/brightness-override
