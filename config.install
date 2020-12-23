@@ -18,6 +18,13 @@ EOF
         cp --preserve=mode /etc/profile /etc/profile~ &&
         sed -i 's/^umask/# umask/' /etc/profile
     fi
+
+    if grep -q Vanilla-DMZ /usr/share/icons/default/index.theme ; then
+		echo "*** cursor theme already set to Vanilla-DMZ"
+	else
+		cp --preserve=mode /usr/share/icons/default/index.theme /usr/share/icons/default/index.theme~
+		sed -i 's/Adwaita/Vanilla-DMZ/' /usr/share/icons/default/index.theme
+	fi
 }
 
 post_upgrade() {
