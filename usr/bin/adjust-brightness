@@ -1,8 +1,9 @@
 #!/bin/bash
 
-for path in /sys/class/power_supply/ADP1
-do
-    read -r ONLINE < $path/online
+for name in AC ADP1 ; do
+    if test -f /sys/class/power_supply/${name}/online ; then
+        read -r ONLINE < /sys/class/power_supply/${name}/online
+    fi
 done
 
 read -r OVERRIDE < /etc/brightness-override
