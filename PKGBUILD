@@ -5,6 +5,7 @@ arch=('x86_64')
 install=config.install
 
 depends=('aeq'
+         'alsa-utils'
          'cbatticon-qt'
          'compton'
          'ethtool'
