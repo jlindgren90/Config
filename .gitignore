@@ -1,5 +1,5 @@
 pkg/
 src/
-*.pkg.tar.gz
+*.pkg.tar.*
 quick-settings
 shorten
