@@ -44,6 +44,7 @@ install-system:
 	install -d -m750 ${DESTDIR}/root
 	install -m640 root/Xdefaults ${DESTDIR}/root/.Xdefaults
 	install -m640 root/gtkrc-2.0 ${DESTDIR}/root/.gtkrc-2.0
+	chmod 0755 ${DESTDIR}/etc/acpi/headphone.sh
 	chown root:audio ${DESTDIR}/etc/asound.conf
 	chmod 0664 ${DESTDIR}/etc/asound.conf
 	chown root:video ${DESTDIR}/etc/brightness-override

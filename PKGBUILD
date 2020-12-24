@@ -4,7 +4,8 @@ pkgrel=1
 arch=('x86_64')
 install=config.install
 
-depends=('aeq'
+depends=('acpid'
+         'aeq'
          'alsa-utils'
          'cbatticon-qt'
          'compton'
