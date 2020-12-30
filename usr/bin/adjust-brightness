@@ -7,17 +7,21 @@ for name in AC ADP1 ; do
 done
 
 read -r OVERRIDE < /etc/brightness-override
-read -r MAX < /sys/class/backlight/intel_backlight/max_brightness
 
-if test x$OVERRIDE != x ; then
-    echo $(($MAX * $OVERRIDE / 100)) > /sys/class/backlight/intel_backlight/brightness
-else
-    case $ONLINE in
-        0)
-            echo $(($MAX * 30 / 100)) > /sys/class/backlight/intel_backlight/brightness
-            ;;
-        1)
-            echo $MAX > /sys/class/backlight/intel_backlight/brightness
-            ;;
-    esac
-fi
+for name in intel_backlight nv_backlight ; do
+    if test -d /sys/class/backlight/${name} ; then
+        read -r MAX < /sys/class/backlight/${name}/max_brightness
+        if test x$OVERRIDE != x ; then
+            echo $(($MAX * $OVERRIDE / 100)) > /sys/class/backlight/${name}/brightness
+        else
+            case $ONLINE in
+                0)
+                    echo $(($MAX * 30 / 100)) > /sys/class/backlight/${name}/brightness
+                    ;;
+                1)
+                    echo $MAX > /sys/class/backlight/${name}/brightness
+                    ;;
+            esac
+        fi
+    fi
+done
