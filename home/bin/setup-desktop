@@ -17,7 +17,7 @@ case ${SRANDRD_ACTION} in
     fi
     ;;
   *)
-    outputs=$(srandrd list | cut -d" " -f1)
+    outputs=$(xrandr | grep " connected" | cut -d" " -f1)
     for output in ${outputs} ; do
       if test ${output} != eDP-1 ; then
         touch "/tmp/setup-desktop-${output}-connected"
