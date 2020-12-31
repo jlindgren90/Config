@@ -1,4 +1,29 @@
 #!/bin/sh
 
-xrandr --output HDMI-1 --auto --primary --right-of eDP-1
-feh --bg-fill "$HOME/.wallpaper.jpg"
+case ${SRANDRD_ACTION} in
+  *" connected")
+    output=${SRANDRD_ACTION% connected}
+    if ! test -f "/tmp/setup-desktop-${output}-connected" ; then
+      touch "/tmp/setup-desktop-${output}-connected"
+      xrandr --output ${output} --auto --primary --right-of eDP-1
+      feh --bg-fill "$HOME/.wallpaper.jpg"
+    fi
+    ;;
+  *" disconnected")
+    output=${SRANDRD_ACTION% disconnected}
+    if test -f "/tmp/setup-desktop-${output}-connected" ; then
+      rm "/tmp/setup-desktop-${output}-connected"
+      xrandr --output ${output} --off
+    fi
+    ;;
+  *)
+    outputs=$(srandrd list | cut -d" " -f1)
+    for output in ${outputs} ; do
+      if test ${output} != eDP-1 ; then
+        touch "/tmp/setup-desktop-${output}-connected"
+        xrandr --output ${output} --auto --primary --right-of eDP-1
+      fi
+    done
+    feh --bg-fill "$HOME/.wallpaper.jpg"
+    ;;
+esac
