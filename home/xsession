@@ -29,6 +29,7 @@ start_per_screen() {
 
   compton &
   qmpanel &
+  volumeicon &
 }
 
 start_per_screen
@@ -37,7 +38,6 @@ cbatticon &
 keepassxc &
 nm-applet &
 quick-settings &
-volumeicon &
 
 if xdpyinfo | grep -q '^screen #1:' ; then
   DISPLAY=${DISPLAY%.*}.1 start_per_screen
