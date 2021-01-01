@@ -1,11 +1,17 @@
 #!/bin/sh
 
+if test ${DISPLAY} = ":0" || test ${DISPLAY} = ":0.0" ; then
+  POS="--right-of eDP-1"
+else
+  POS=""
+fi
+
 case ${SRANDRD_ACTION} in
   *" connected")
     output=${SRANDRD_ACTION% connected}
     if ! test -f "/tmp/setup-desktop-${output}-connected" ; then
       touch "/tmp/setup-desktop-${output}-connected"
-      xrandr --output ${output} --auto --primary --right-of eDP-1
+      xrandr --output ${output} --auto --primary ${POS}
       feh --bg-fill "$HOME/.wallpaper.jpg"
     fi
     ;;
@@ -21,7 +27,7 @@ case ${SRANDRD_ACTION} in
     for output in ${outputs} ; do
       if test ${output} != eDP-1 ; then
         touch "/tmp/setup-desktop-${output}-connected"
-        xrandr --output ${output} --auto --primary --right-of eDP-1
+        xrandr --output ${output} --auto --primary ${POS}
       fi
     done
     feh --bg-fill "$HOME/.wallpaper.jpg"
