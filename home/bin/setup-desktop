@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if test ${DISPLAY} = ":0" || test ${DISPLAY} = ":0.0" ; then
+if test x"${DISPLAY%.1}" = x"${DISPLAY}" ; then
   POS="--right-of eDP-1"
 else
   POS=""
