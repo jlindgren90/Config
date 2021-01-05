@@ -19,7 +19,7 @@ for name in nvidia_0 ; do
                     echo $(($MAX * 60 / 100)) > /sys/class/backlight/${name}/brightness
                     ;;
                 1)
-                    echo $MAX > /sys/class/backlight/${name}/brightness
+                    echo $(($MAX * 80 / 100)) > /sys/class/backlight/${name}/brightness
                     ;;
             esac
         fi
