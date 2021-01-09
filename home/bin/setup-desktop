@@ -1,9 +1,11 @@
 #!/bin/sh
 
+internal=DP-3
+
 if test x"${DISPLAY%.1}" = x"${DISPLAY}" ; then
-  POS="--right-of DP-3"
+  position="--right-of ${internal}"
 else
-  POS=""
+  position=""
 fi
 
 case ${SRANDRD_ACTION} in
@@ -11,7 +13,7 @@ case ${SRANDRD_ACTION} in
     output=${SRANDRD_ACTION% connected}
     if ! test -f "/tmp/setup-desktop-${output}-connected" ; then
       touch "/tmp/setup-desktop-${output}-connected"
-      xrandr --output ${output} --auto --primary ${POS}
+      xrandr --output ${output} --auto --primary ${position}
       feh --bg-fill "$HOME/.wallpaper.jpg"
     fi
     ;;
@@ -25,9 +27,9 @@ case ${SRANDRD_ACTION} in
   *)
     outputs=$(xrandr | grep " connected" | cut -d" " -f1)
     for output in ${outputs} ; do
-      if test ${output} != eDP-1 ; then
+      if test ${output} != ${internal} ; then
         touch "/tmp/setup-desktop-${output}-connected"
-        xrandr --output ${output} --auto --primary ${POS}
+        xrandr --output ${output} --auto --primary ${position}
       fi
     done
     feh --bg-fill "$HOME/.wallpaper.jpg"
