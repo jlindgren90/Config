@@ -27,7 +27,7 @@ start_per_screen() {
   setup-desktop
   srandrd setup-desktop
 
-  compton &
+  picom --experimental-backends &
   qmpanel &
   volumeicon &
 }
