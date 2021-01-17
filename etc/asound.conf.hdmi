@@ -16,7 +16,7 @@ pcm.hdmi_out {
       slave.rate 48000
       slave.period_size 1024
       slave.buffer_size 16384
-      slave.pcm "hw:0,3"
+      slave.pcm "hw:1,9"
    }
 }
 
