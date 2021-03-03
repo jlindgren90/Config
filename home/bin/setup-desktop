@@ -2,26 +2,35 @@
 
 internal=DP-3
 
-if test x"${DISPLAY%.1}" = x"${DISPLAY}" ; then
-  position="--right-of ${internal}"
-else
-  position=""
-fi
+setup_external() {
+  if test -f ~/.config/enable-dual-displays ; then
+    xrandr --output ${internal} --auto \
+           --output $1 --auto --primary --right-of ${internal}
+  else
+    xrandr --output ${internal} --off \
+           --output $1 --auto --primary
+  fi
+  feh --bg-fill "$HOME/.wallpaper.jpg"
+}
+
+setup_internal() {
+  xrandr --auto
+  feh --bg-fill "$HOME/.wallpaper.jpg"
+}
 
 case ${SRANDRD_ACTION} in
   *" connected")
     output=${SRANDRD_ACTION% connected}
     if ! test -f "/tmp/setup-desktop-${output}-connected" ; then
       touch "/tmp/setup-desktop-${output}-connected"
-      xrandr --output ${output} --auto --primary ${position}
-      feh --bg-fill "$HOME/.wallpaper.jpg"
+      setup_external ${output}
     fi
     ;;
   *" disconnected")
     output=${SRANDRD_ACTION% disconnected}
     if test -f "/tmp/setup-desktop-${output}-connected" ; then
       rm "/tmp/setup-desktop-${output}-connected"
-      xrandr --output ${output} --off
+      setup_internal
     fi
     ;;
   *)
@@ -29,9 +38,11 @@ case ${SRANDRD_ACTION} in
     for output in ${outputs} ; do
       if test ${output} != ${internal} ; then
         touch "/tmp/setup-desktop-${output}-connected"
-        xrandr --output ${output} --auto --primary ${position}
+        setup_external ${output}
       fi
     done
-    feh --bg-fill "$HOME/.wallpaper.jpg"
+    if test "${outputs}" = ${internal} ; then
+      setup_internal
+    fi
     ;;
 esac
