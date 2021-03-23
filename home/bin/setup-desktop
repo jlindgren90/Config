@@ -15,6 +15,11 @@ setup_external() {
 
 setup_internal() {
   xrandr --auto
+  if xrandr | grep -q "panning" ; then
+    # nvidia enables panning if external monitor is unplugged while
+    # suspended; try to disable it again
+    xrandr --output ${internal} --panning 0x0
+  fi
   feh --bg-fill "$HOME/.wallpaper.jpg"
 }
 
