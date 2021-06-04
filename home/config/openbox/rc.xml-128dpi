@@ -201,7 +201,7 @@
     <!-- Application shortcuts -->
     <keybind key="W-e">
       <action name="Execute">
-        <command>nemo</command>
+        <command>thunar</command>
       </action>
     </keybind>
     <keybind key="W-r">
