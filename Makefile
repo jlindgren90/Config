@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -std=c99 -Wall -O2 -g
-GTK_CFLAGS = $(shell pkg-config --cflags gtk+-2.0) -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_32
-GTK_LIBS = $(shell pkg-config --libs gtk+-2.0)
+GTK_CFLAGS = $(shell pkg-config --cflags gtk+-3.0) -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_0
+GTK_LIBS = $(shell pkg-config --libs gtk+-3.0)
 MKDIR = mkdir -p
 RM = rm -f
 CP = cp --preserve=mode
