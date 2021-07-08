@@ -1,37 +1,32 @@
-CC = gcc
 CFLAGS = -std=c99 -Wall -O2 -g
-GTK_CFLAGS = $(shell pkg-config --cflags gtk+-3.0) -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_0
-GTK_LIBS = $(shell pkg-config --libs gtk+-3.0)
-MKDIR = mkdir -p
-RM = rm -f
+CXXFLAGS = -std=c++11 -Wall -O2 -g
+GUI_CFLAGS = $(shell pkg-config --cflags glib-2.0 Qt5Widgets) -fPIC
+GUI_LIBS = $(shell pkg-config --libs glib-2.0 Qt5Widgets)
 CP = cp --preserve=mode
-LN = ln -sf
-CHOWN = chown
-CHMOD = chmod
 
 all: tools/quick-settings tools/shorten
 
-tools/quick-settings: tools/quick-settings.c
-	${CC} ${CFLAGS} ${GTK_CFLAGS} -o tools/quick-settings tools/quick-settings.c ${GTK_LIBS}
+tools/quick-settings: tools/quick-settings.cc
+	g++ ${CXXFLAGS} ${GUI_CFLAGS} -o tools/quick-settings tools/quick-settings.cc ${GUI_LIBS}
 
 tools/shorten: tools/shorten.c
-	${CC} ${CFLAGS} -o tools/shorten tools/shorten.c
+	gcc ${CFLAGS} -o tools/shorten tools/shorten.c
 
 clean:
-	${RM} tools/quick-settings tools/shorten
+	rm -f tools/quick-settings tools/shorten
 
 install-user:
 	${CP} home/bash_profile ${HOME}/.bash_profile
 	${CP} home/profile ${HOME}/.profile
 	${CP} home/xsession ${HOME}/.xsession
 	${CP} -r home/bin ${HOME}/
-	${RM} ${HOME}/bin/quick-settings
+	rm -f ${HOME}/bin/quick-settings
 	${CP} tools/quick-settings ${HOME}/bin/
-	${RM} ${HOME}/bin/shorten
+	rm -f ${HOME}/bin/shorten
 	${CP} tools/shorten ${HOME}/bin/
-	${MKDIR} ${HOME}/.config
+	mkdir -p ${HOME}/.config
 	${CP} -r home/config/* ${HOME}/.config/
-	${MKDIR} ${HOME}/.local
+	mkdir -p ${HOME}/.local
 	${CP} -r home/local/* ${HOME}/.local/
 	chdpi 128
 
