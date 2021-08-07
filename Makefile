@@ -28,7 +28,7 @@ install-user:
 	${CP} -r home/config/* ${HOME}/.config/
 	mkdir -p ${HOME}/.local
 	${CP} -r home/local/* ${HOME}/.local/
-	chdpi 128
+	${HOME}/bin/chdpi 128
 
 install-system:
 	find etc -type d -exec install -d ${DESTDIR}/\{\} \;
