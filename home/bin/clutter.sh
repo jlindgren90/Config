@@ -10,5 +10,5 @@ pacman -Qql | sed 's/\/$//' | sort -u >> inst.list
 
 find / -xdev | sort | sed -e '/^\/dev\//d' -e '/^\/proc\//d' -e '/^\/sys\//d' > files.list
 
-diff inst.list files.list | ./shorten > files.diff
+diff inst.list files.list | shorten > files.diff
 rm inst.list files.list
