@@ -48,6 +48,11 @@ depends=('acpid'
          'xorg-xset'
          'xsettingsd')
 
+build() {
+    cd ..
+    make
+}
+
 package() {
     cd ..
     make DESTDIR="${pkgdir}" install-system

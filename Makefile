@@ -20,10 +20,6 @@ install-user:
 	${CP} home/profile ${HOME}/.profile
 	${CP} home/xsession ${HOME}/.xsession
 	${CP} -r home/bin ${HOME}/
-	rm -f ${HOME}/bin/quick-settings
-	${CP} tools/quick-settings ${HOME}/bin/
-	rm -f ${HOME}/bin/shorten
-	${CP} tools/shorten ${HOME}/bin/
 	mkdir -p ${HOME}/.config
 	${CP} -r home/config/* ${HOME}/.config/
 	mkdir -p ${HOME}/.local
@@ -36,6 +32,8 @@ install-system:
 	find usr -type d -exec install -d ${DESTDIR}/\{\} \;
 	find usr/bin -type f -exec install \{\} ${DESTDIR}/\{\} \;
 	find usr/lib -type f -exec install -m644 \{\} ${DESTDIR}/\{\} \;
+	install tools/quick-settings ${DESTDIR}/usr/bin/quick-settings
+	install tools/shorten ${DESTDIR}/usr/bin/shorten
 	install -d -m750 ${DESTDIR}/root
 	install -m640 root/Xdefaults ${DESTDIR}/root/.Xdefaults
 	install -m640 root/gtkrc-2.0 ${DESTDIR}/root/.gtkrc-2.0
