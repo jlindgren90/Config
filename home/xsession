@@ -44,7 +44,4 @@ if xdpyinfo | grep -q '^screen #1:' ; then
   (DISPLAY=${DISPLAY%.*}.1 openbox && pkill openbox) &
 fi
 
-openbox
-
-# kill uncooperative apps
-pkill -kill nemo
+exec openbox
