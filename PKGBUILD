@@ -5,6 +5,7 @@ arch=('x86_64')
 install=config.install
 
 depends=('acpid'
+         'adobe-source-code-pro-fonts'
          'aeq'
          'alsa-utils'
          'cbatticon-qt'
@@ -32,8 +33,8 @@ depends=('acpid'
          'qt5ct'
          'rsync'
          'srandrd'
-         'ttf-liberation'
          'thunar'
+         'ttf-ms-fonts'
          'tumbler'
          'volumeicon'
          'wmctrl'

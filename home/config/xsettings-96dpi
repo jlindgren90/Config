@@ -8,4 +8,4 @@ Net/DoubleClickTime 500
 Net/IconThemeName "gnome"
 Net/ThemeName "Old-Style"
 Xft/DPI 98304
-Xft/HintStyle "hintslight"
+Xft/HintStyle "hintnone"
