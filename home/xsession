@@ -6,6 +6,7 @@ export QT_FONT_DPI=$(grep Xft.dpi < ~/.config/xresources | cut -d" " -f2)
 export QT_LOGGING_RULES="*.debug=false"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export SAL_USE_VCLPLUGIN=kf5
+export XDG_CURRENT_DESKTOP=XFCE
 
 xrdb ~/.config/xresources
 numlockx
