@@ -17,6 +17,7 @@ clean:
 
 install-user:
 	${CP} home/bash_profile ${HOME}/.bash_profile
+	${CP} home/bashrc ${HOME}/.bashrc
 	${CP} home/profile ${HOME}/.profile
 	${CP} home/xsession ${HOME}/.xsession
 	${CP} -r home/bin ${HOME}/

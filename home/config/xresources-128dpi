@@ -2,3 +2,45 @@ Xft.antialias: 1
 Xft.hintstyle: hintnone
 Xft.rgba: rgb
 Xft.dpi: 128
+
+*.font: xft:monospace:size=9
+*.geometry: 121x41
+*.background: #000000
+*.foreground: #ffffff
+*.cursorColor: #ffffff
+*.color0: #000000
+*.color1: #aa0000
+*.color2: #00aa00
+*.color3: #aa5500
+*.color4: #0000aa
+*.color5: #aa00aa
+*.color6: #00aaaa
+*.color7: #aaaaaa
+*.color8: #555555
+*.color9: #ff5555
+*.color10: #55ff55
+*.color11: #ffff55
+*.color12: #5555ff
+*.color13: #ff55ff
+*.color14: #55ffff
+*.color15: #ffffff
+
+URxvt.cursorUnderline: true
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.letterSpace: -1
+URxvt.saveLines: 1000000
+URxvt.scrollBar_right: true
+URxvt.scrollstyle: plain
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+URxvt.secondaryScroll: false
+
+URxvt.perl-ext-common: clipboard,tabbedex
+URxvt.keysym.C-S-C: perl:clipboard:copy
+URxvt.keysym.C-S-V: perl:clipboard:paste
+URxvt.keysym.C-S-T: perl:tabbedex:new_tab
+URxvt.keysym.C-S-Page_Down: perl:tabbedex:next_tab
+URxvt.keysym.C-S-Page_Up: perl:tabbedex:prev_tab
+URxvt.tabbedex.autohide: false
