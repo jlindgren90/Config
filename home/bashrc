@@ -6,4 +6,5 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+alias xo='gio open'
 PS1='[\u@\h \W]\$ '

@@ -26,6 +26,7 @@ install-user:
 	mkdir -p ${HOME}/.local
 	${CP} -r home/local/* ${HOME}/.local/
 	${HOME}/bin/chdpi 128
+	xdg-mime default thunar.desktop inode/directory
 
 install-system:
 	find etc -type d -exec install -d ${DESTDIR}/\{\} \;
