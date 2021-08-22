@@ -4,7 +4,7 @@ Xft.rgba: rgb
 Xft.dpi: 128
 
 *.font: xft:monospace:size=9
-*.geometry: 121x41
+*.geometry: 120x40
 *.background: #000000
 *.foreground: #ffffff
 *.cursorColor: #ffffff
@@ -24,23 +24,3 @@ Xft.dpi: 128
 *.color13: #ff55ff
 *.color14: #55ffff
 *.color15: #ffffff
-
-URxvt.cursorUnderline: true
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-URxvt.letterSpace: -1
-URxvt.saveLines: 1000000
-URxvt.scrollBar_right: true
-URxvt.scrollstyle: plain
-URxvt.scrollTtyOutput: false
-URxvt.scrollWithBuffer: true
-URxvt.scrollTtyKeypress: true
-URxvt.secondaryScroll: false
-
-URxvt.perl-ext-common: clipboard,tabbedex
-URxvt.keysym.C-S-C: perl:clipboard:copy
-URxvt.keysym.C-S-V: perl:clipboard:paste
-URxvt.keysym.C-S-T: perl:tabbedex:new_tab
-URxvt.keysym.C-S-Page_Down: perl:tabbedex:next_tab
-URxvt.keysym.C-S-Page_Up: perl:tabbedex:prev_tab
-URxvt.tabbedex.autohide: false

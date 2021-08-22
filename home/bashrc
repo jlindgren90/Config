@@ -7,8 +7,3 @@
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
-
-if [[ "$TERM" == rxvt-unicode* ]]; then
-    xseticon -id "$WINDOWID" /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
-    alias clear="echo -ne '\033c'" # clear scrollback
-fi
