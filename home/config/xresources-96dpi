@@ -3,8 +3,11 @@ Xft.hintstyle: hintnone
 Xft.rgba: rgb
 Xft.dpi: 96
 
-*.font: xft:monospace:size=9
+*.faceName: monospace:size=9
 *.geometry: 120x40
+*.saveLines: 10000
+*.scrollBar: true
+*.rightScrollBar: true
 *.background: #000000
 *.foreground: #ffffff
 *.cursorColor: #ffffff
@@ -24,3 +27,7 @@ Xft.dpi: 96
 *.color13: #ff55ff
 *.color14: #55ffff
 *.color15: #ffffff
+
+*.vt100.translations: #override \n\
+  Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+  Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
