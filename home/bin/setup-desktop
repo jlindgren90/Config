@@ -1,53 +1,55 @@
-#!/bin/sh
+#!/bin/bash
 
-internal=DP-3
-
-setup_external() {
-  if test -f ~/.config/enable-dual-displays ; then
-    xrandr --output ${internal} --auto \
-           --output $1 --auto --primary --right-of ${internal}
-  else
-    xrandr --output ${internal} --off \
-           --output $1 --auto --primary
-  fi
-  feh --bg-fill "$HOME/.wallpaper.jpg"
-}
-
-setup_internal() {
+setup_one() {
   xrandr --auto
   if xrandr | grep -q "panning" ; then
-    # nvidia enables panning if external monitor is unplugged while
-    # suspended; try to disable it again
-    xrandr --output ${internal} --panning 0x0
+    # nvidia enables panning if external monitor is
+    # unplugged while suspended; try to disable it
+    xrandr --output $1 --panning 0x0
   fi
-  feh --bg-fill "$HOME/.wallpaper.jpg"
 }
 
-case ${SRANDRD_ACTION} in
-  *" connected")
-    output=${SRANDRD_ACTION% connected}
-    if ! test -f "/tmp/setup-desktop-${output}-connected" ; then
-      touch "/tmp/setup-desktop-${output}-connected"
-      setup_external ${output}
-    fi
-    ;;
-  *" disconnected")
-    output=${SRANDRD_ACTION% disconnected}
-    if test -f "/tmp/setup-desktop-${output}-connected" ; then
-      rm "/tmp/setup-desktop-${output}-connected"
-      setup_internal
-    fi
-    ;;
-  *)
-    outputs=$(xrandr | grep " connected" | cut -d" " -f1)
-    for output in ${outputs} ; do
-      if test ${output} != ${internal} ; then
-        touch "/tmp/setup-desktop-${output}-connected"
-        setup_external ${output}
-      fi
-    done
-    if test "${outputs}" = ${internal} ; then
-      setup_internal
-    fi
-    ;;
-esac
+setup_two() {
+  if test -f ~/.config/enable-dual-displays ; then
+    xrandr --output $1 --auto \
+           --output $2 --auto --primary --right-of $1
+  else
+    xrandr --output $1 --off \
+           --output $2 --auto --primary
+  fi
+}
+
+setup_three() {
+  if test -f ~/.config/enable-dual-displays ; then
+    xrandr --output $1 --auto \
+           --output $2 --auto --primary --right-of $1 \
+           --output $3 --auto --right-of $2
+  else
+    xrandr --output $1 --off \
+           --output $2 --auto --primary \
+           --output $3 --auto --right-of $2
+  fi
+}
+
+outputs=($(xrandr | grep " connected" | sort | cut -d" " -f1))
+
+if [[ " ${outputs[@]} " =~ " eDP-1 " ]] ; then
+  internal=eDP-1 # intel
+elif [[ " ${outputs[@]} " =~ " DP-3 " ]] ; then
+  internal=DP-3 # nvidia
+else
+  internal=${outputs[0]}
+fi
+
+external=(${outputs[@]/$internal})
+nexternal=${#external[@]}
+
+if [[ $nexternal == 0 ]] ; then
+  setup_one $internal
+elif [[ $nexternal == 1 ]] ; then
+  setup_two $internal ${external[0]}
+else
+  setup_three $internal ${external[0]} ${external[1]}
+fi
+
+feh --bg-fill "$HOME/.wallpaper.jpg"
