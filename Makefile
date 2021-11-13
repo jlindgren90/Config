@@ -42,5 +42,9 @@ install-system:
 	chmod 0755 ${DESTDIR}/etc/acpi/headphone.sh
 	chown root:audio ${DESTDIR}/etc/asound.conf
 	chmod 0664 ${DESTDIR}/etc/asound.conf
+	touch ${DESTDIR}/etc/brightness-override
 	chown root:video ${DESTDIR}/etc/brightness-override
 	chmod 0664 ${DESTDIR}/etc/brightness-override
+	touch ${DESTDIR}/etc/dual-displays
+	chown root:video ${DESTDIR}/etc/dual-displays
+	chmod 0664 ${DESTDIR}/etc/dual-displays
