@@ -1,9 +1,0 @@
-#!/bin/sh
-
-ln -sf xresources-"$1"dpi ~/.config/xresources
-xrdb ~/.config/xresources
-
-ln -sf xsettings-"$1"dpi ~/.config/xsettings
-pkill -HUP xsettingsd
-
-ln -sf rc.xml-"$1"dpi ~/.config/openbox/rc.xml

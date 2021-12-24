@@ -2,7 +2,7 @@
 
 export GTK_OVERLAY_SCROLLING=0
 export QT_ENABLE_HIGHDPI_SCALING=0
-export QT_FONT_DPI=$(grep Xft.dpi < ~/.config/xresources | cut -d" " -f2)
+export QT_FONT_DPI=128
 export QT_LOGGING_RULES="*.debug=false"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export SAL_USE_VCLPLUGIN=kf5
@@ -16,25 +16,15 @@ xsettingsd -c ~/.config/xsettings &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-start_per_screen() {
-  setup-desktop
-  srandrd setup-desktop
+setup-desktop
+srandrd setup-desktop
 
-  picom --experimental-backends &
-  qmpanel &
-  volumeicon &
-}
-
-start_per_screen
-
+picom --experimental-backends &
+qmpanel &
 cbatticon &
 keepassxc &
 nm-applet &
 quick-settings &
-
-if xdpyinfo | grep -q '^screen #1:' ; then
-  DISPLAY=${DISPLAY%.*}.1 start_per_screen
-  (DISPLAY=${DISPLAY%.*}.1 openbox && pkill openbox) &
-fi
+volumeicon &
 
 exec openbox

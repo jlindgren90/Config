@@ -25,7 +25,6 @@ install-user:
 	${CP} -r home/config/* ${HOME}/.config/
 	mkdir -p ${HOME}/.local
 	${CP} -r home/local/* ${HOME}/.local/
-	${HOME}/bin/chdpi 128
 	xdg-mime default thunar.desktop inode/directory
 
 install-system:
