@@ -2,3 +2,4 @@
 
 export EDITOR="nano"
 export PATH="$PATH:$HOME/bin"
+export WLR_NO_HARDWARE_CURSORS=1
