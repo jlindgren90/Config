@@ -21,6 +21,10 @@ root="$HOME/Backup"
 curyear=`date +%Y`
 dir="$1"
 
+if test -z "$dir" ; then
+    dir="${PWD##*/}"
+fi
+
 for file in * ; do
     found="no"
     loc=""
