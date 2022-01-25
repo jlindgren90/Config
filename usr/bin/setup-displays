@@ -2,15 +2,6 @@
 
 read -r DUALDISPLAYS < /etc/dual-displays
 
-setup_one() {
-  xrandr --auto
-  if xrandr | grep -q "panning" ; then
-    # nvidia enables panning if external monitor is
-    # unplugged while suspended; try to disable it
-    xrandr --output $1 --panning 0x0
-  fi
-}
-
 setup_two() {
   if test "$DUALDISPLAYS" == 1 ; then
     xrandr --output $1 --auto \
@@ -42,7 +33,15 @@ setup_three() {
   fi
 }
 
-outputs=($(xrandr | grep " connected" | sort | cut -d" " -f1))
+state=$(xrandr)
+outputs=($(grep " connected" <<< "$state" | sort | cut -d" " -f1))
+
+# disable panning
+for output in ${outputs[@]} ; do
+  if grep -Eq "$output .* panning" <<< "$state" ; then
+    xrandr --output $output --panning 0x0
+  fi
+done
 
 if [[ " ${outputs[@]} " =~ " eDP-1 " ]] ; then
   internal=eDP-1 # intel
@@ -56,7 +55,7 @@ external=(${outputs[@]/$internal})
 nexternal=${#external[@]}
 
 if [[ $nexternal == 0 ]] ; then
-  setup_one $internal
+  xrandr --auto
 elif [[ $nexternal == 1 ]] ; then
   setup_two $internal ${external[0]}
 else
