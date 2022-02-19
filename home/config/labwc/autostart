@@ -1,1 +1,3 @@
+xrdb ~/.config/xresources
+xsettingsd -c ~/.config/xsettings &
 kanshi &
