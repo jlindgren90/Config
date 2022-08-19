@@ -13,40 +13,24 @@ setup_two() {
 }
 
 setup_three() {
-  if [[ ${2%%.*} == ${3%%.*} ]] ; then
-    # work around a hardware limitation: alpine ridge controller with
-    # USB alt-mode dock (2 DP lanes) can push 8.6 Gbps, just enough for
-    # one 1440p + one 1080p signal
-    mode3="--mode 1920x1080"
-  else
-    mode3="--auto"
-  fi
-
   if test "$DUALDISPLAYS" == 1 ; then
     xrandr --output $1 --auto \
            --output $2 --auto --primary --right-of $1 \
-           --output $3 $mode3 --right-of $2
+           --output $3 --auto --right-of $2
   else
     xrandr --output $1 --off \
            --output $2 --auto --primary \
-           --output $3 $mode3 --right-of $2
+           --output $3 --auto --right-of $2
   fi
 }
 
 state=$(xrandr)
 outputs=($(grep " connected" <<< "$state" | sort | cut -d" " -f1))
 
-# disable panning
-for output in ${outputs[@]} ; do
-  if grep -Eq "$output .* panning" <<< "$state" ; then
-    xrandr --output $output --panning 0x0
-  fi
-done
-
-if [[ " ${outputs[@]} " =~ " eDP-1 " ]] ; then
+if [[ " ${outputs[@]} " =~ " eDP " ]] ; then
+  internal=eDP # amd
+elif [[ " ${outputs[@]} " =~ " eDP-1 " ]] ; then
   internal=eDP-1 # intel
-elif [[ " ${outputs[@]} " =~ " DP-3 " ]] ; then
-  internal=DP-3 # nvidia
 else
   internal=${outputs[0]}
 fi
