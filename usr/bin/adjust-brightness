@@ -8,20 +8,18 @@ done
 
 read -r OVERRIDE < /etc/brightness-override
 
-for name in nvidia_0 ; do
-    if test -d /sys/class/backlight/${name} ; then
-        read -r MAX < /sys/class/backlight/${name}/max_brightness
-        if test x$OVERRIDE != x ; then
-            echo $(($MAX * $OVERRIDE / 100)) > /sys/class/backlight/${name}/brightness
-        else
-            case $ONLINE in
-                0)
-                    echo $(($MAX * 60 / 100)) > /sys/class/backlight/${name}/brightness
-                    ;;
-                1)
-                    echo $(($MAX * 80 / 100)) > /sys/class/backlight/${name}/brightness
-                    ;;
-            esac
-        fi
+for bl in /sys/class/backlight/* ; do
+    read -r MAX < ${bl}/max_brightness
+    if test x$OVERRIDE != x ; then
+        echo $(($MAX * $OVERRIDE / 100)) > ${bl}/brightness
+    else
+        case $ONLINE in
+            0)
+                echo $(($MAX * 60 / 100)) > ${bl}/brightness
+                ;;
+            1)
+                echo $(($MAX * 80 / 100)) > ${bl}/brightness
+                ;;
+        esac
     fi
 done
