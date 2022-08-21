@@ -1,0 +1,5 @@
+profile {
+    output eDP-1 disable
+    output DP-3 position 0,0
+    output DP-4 position 2560,0
+}
