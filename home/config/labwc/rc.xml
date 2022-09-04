@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
+<labwc_config>
+  <core>
+    <cycleViewPreview>yes</cycleViewPreview>
+  </core>
   <placement>
     <policy>Smart</policy>
     <center>yes</center>
@@ -8,6 +11,7 @@
   </placement>
   <theme>
     <name>Old-Style-128dpi</name>
+    <cornerRadius>0</cornerRadius>
     <titleLayout>NLIMC</titleLayout>
     <keepBorder>yes</keepBorder>
     <animateIconify>no</animateIconify>
@@ -124,7 +128,7 @@
         <command>audtool --playback-stop</command>
       </action>
     </keybind>
-    <!-- Quit OpenBox -->
+    <!-- Quit labwc -->
     <keybind key="W-Q">
       <action name="Exit">
         <prompt>yes</prompt>
@@ -137,4 +141,4 @@
       <focus>yes</focus>
     </application>
   </applications>
-</openbox_config>
+</labwc_config>
