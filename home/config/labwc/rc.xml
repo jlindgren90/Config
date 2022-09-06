@@ -135,6 +135,14 @@
       </action>
     </keybind>
   </keyboard>
+  <mouse>
+    <default />
+    <context name="Desktop">
+      <mousebind button="Left" action="Press">
+        <action name="None"/>
+      </mousebind>
+    </context>
+  </mouse>
   <applications>
     <!-- Let new windows receive focus -->
     <application class="*">
