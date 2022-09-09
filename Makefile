@@ -26,6 +26,12 @@ install-user:
 	mkdir -p ${HOME}/.local
 	${CP} -r home/local/* ${HOME}/.local/
 	xdg-mime default thunar.desktop inode/directory
+	gsettings set org.gnome.desktop.interface cursor-theme default
+	gsettings set org.gnome.desktop.interface font-antialiasing rgba
+	gsettings set org.gnome.desktop.interface font-name "Sans 10"
+	gsettings set org.gnome.desktop.interface gtk-theme Old-Style-128dpi
+	gsettings set org.gnome.desktop.interface icon-theme gnome
+	gsettings set org.gnome.desktop.interface text-scaling-factor 1.33333
 
 install-system:
 	find etc -type d -exec install -d ${DESTDIR}/\{\} \;
