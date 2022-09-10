@@ -26,12 +26,19 @@ install-user:
 	mkdir -p ${HOME}/.local
 	${CP} -r home/local/* ${HOME}/.local/
 	xdg-mime default thunar.desktop inode/directory
+	# GTK/Wayland settings
 	gsettings set org.gnome.desktop.interface cursor-theme default
 	gsettings set org.gnome.desktop.interface font-antialiasing rgba
 	gsettings set org.gnome.desktop.interface font-name "Sans 10"
 	gsettings set org.gnome.desktop.interface gtk-theme Old-Style-128dpi
 	gsettings set org.gnome.desktop.interface icon-theme gnome
 	gsettings set org.gnome.desktop.interface text-scaling-factor 1.33333
+	# generate swaylock background
+	echo "Session locked by ${USER} - enter password to unlock" \
+	 >${HOME}/.config/swaylock/locktext.txt
+	pango-view --background="#303030" --foreground="#f0f0f0" --font="Sans 10" \
+	 --dpi=128 -qo ${HOME}/.config/swaylock/locktext.png \
+	 ${HOME}/.config/swaylock/locktext.txt
 
 install-system:
 	find etc -type d -exec install -d ${DESTDIR}/\{\} \;
