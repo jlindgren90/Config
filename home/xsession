@@ -23,7 +23,6 @@ srandrd setup-desktop
 picom --experimental-backends &
 qmpanel &
 cbatticon &
-keepassxc &
 nm-applet &
 quick-settings &
 volumeicon &
