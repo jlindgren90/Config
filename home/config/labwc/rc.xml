@@ -3,34 +3,13 @@
   <core>
     <cycleViewPreview>yes</cycleViewPreview>
   </core>
-  <placement>
-    <policy>Smart</policy>
-    <center>yes</center>
-    <monitor>Mouse</monitor>
-    <primaryMonitor>Mouse</primaryMonitor>
-  </placement>
   <theme>
     <name>Old-Style-128dpi</name>
     <cornerRadius>0</cornerRadius>
-    <titleLayout>NLIMC</titleLayout>
-    <keepBorder>yes</keepBorder>
-    <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
       <name>Sans</name>
       <size>13</size>
       <weight>Bold</weight>
-      <slant>Normal</slant>
-    </font>
-    <font place="InactiveWindow">
-      <name>Sans</name>
-      <size>13</size>
-      <weight>Bold</weight>
-      <slant>Normal</slant>
-    </font>
-    <font place="MenuHeader">
-      <name>Sans</name>
-      <size>13</size>
-      <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="MenuItem">
@@ -39,22 +18,13 @@
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
-    <font place="ActiveOnScreenDisplay">
-      <name>Sans</name>
-      <size>13</size>
-      <weight>Normal</weight>
-      <slant>Normal</slant>
-    </font>
-    <font place="InactiveOnScreenDisplay">
+    <font place="OSD">
       <name>Sans</name>
       <size>13</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
   </theme>
-  <desktops>
-    <number>1</number>
-  </desktops>
   <keyboard>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
@@ -67,22 +37,10 @@
     </keybind>
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
-      <action name="NextWindow">
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
+      <action name="NextWindow"/>
     </keybind>
     <keybind key="A-S-Tab">
-      <action name="PreviousWindow">
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
+      <action name="PreviousWindow"/>
     </keybind>
     <keybind key="W-Up">
       <action name="ToggleMaximize"/>
@@ -148,10 +106,4 @@
       </mousebind>
     </context>
   </mouse>
-  <applications>
-    <!-- Let new windows receive focus -->
-    <application class="*">
-      <focus>yes</focus>
-    </application>
-  </applications>
 </labwc_config>
