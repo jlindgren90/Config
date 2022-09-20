@@ -16,6 +16,11 @@ pacman -Qqm | tee pkgunknown.txt >> pkgreport.txt
 printf "\n\n*** LOCAL OVERRIDES ***\n\n" >> pkgreport.txt
 sed -n '/%NAME%/{n;h};/%VALIDATION%/{n;/none/{x;p}}' /var/lib/pacman/local/*/desc > pkgunsigned.txt
 comm -23 pkgunsigned.txt pkgunknown.txt >> pkgreport.txt
+rm pkgunsigned.txt pkgunknown.txt
 
 printf "\n\n*** AUR UPGRADES AVAILABLE ***\n\n" >> pkgreport.txt
 pacman -Qm | aur vercmp >> pkgreport.txt
+
+if test -f pkgreport.txt~ ; then
+  colordiff -u pkgreport.txt~ pkgreport.txt
+fi
