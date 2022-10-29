@@ -25,6 +25,8 @@ EOF
         cp --preserve=mode /usr/share/icons/default/index.theme /usr/share/icons/default/index.theme~
         sed -i 's/Adwaita/Vanilla-DMZ/' /usr/share/icons/default/index.theme
     fi
+
+    systemctl enable disable-acpi-wakeup.service
 }
 
 post_upgrade() {
