@@ -3,7 +3,7 @@ Description=Disable ACPI wakeup sources
 
 [Service]
 Type=oneshot
-ExecStart=sh -c 'for i in PS2K EHC1 EHC2 XHC ; do grep -q $i\'.*enabled\' < /proc/acpi/wakeup && echo $i > /proc/acpi/wakeup ; done ; true'
+ExecStart=sh -c 'for i in XHC0 XHC1 ; do grep -q $i\'.*enabled\' < /proc/acpi/wakeup && echo $i > /proc/acpi/wakeup ; done ; true'
 
 [Install]
 WantedBy=multi-user.target
