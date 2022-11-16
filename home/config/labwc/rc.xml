@@ -121,4 +121,9 @@
       </mousebind>
     </context>
   </mouse>
+  <libinput>
+    <device category="Logitech Wireless Mouse">
+      <pointerSpeed>-0.5</pointerSpeed>
+    </device>
+  </libinput>
 </labwc_config>
