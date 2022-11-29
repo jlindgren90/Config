@@ -20,7 +20,7 @@ xsettingsd -c ~/.config/xsettings &
 setup-desktop
 srandrd setup-desktop
 
-picom --experimental-backends &
+picom &
 qmpanel &
 cbatticon &
 nm-applet &
