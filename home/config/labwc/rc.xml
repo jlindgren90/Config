@@ -42,6 +42,13 @@
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
     </keybind>
+    <!-- Half screen shortcuts -->
+    <keybind key="W-Left">
+      <action name="SnapToEdge" direction="left"/>
+    </keybind>
+    <keybind key="W-Right">
+      <action name="SnapToEdge" direction="right"/>
+    </keybind>
     <keybind key="W-Up">
       <action name="ToggleMaximize"/>
     </keybind>
