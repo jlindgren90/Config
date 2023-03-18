@@ -14,7 +14,7 @@ pcm.hdmi_out {
       slave.format S16_LE
       slave.channels 2
       slave.rate 48000
-      slave.period_size 1024
+      slave.period_size 2048
       slave.buffer_size 16384
       slave.pcm "hw:1,7"
    }
@@ -30,7 +30,7 @@ pcm.hda_in {
       slave.format S16_LE
       slave.channels 2
       slave.rate 48000
-      slave.period_size 1024
+      slave.period_size 2048
       slave.buffer_size 16384
       slave.pcm "hw:0,0"
    }
