@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <labwc_config>
-  <core>
-    <cycleViewPreview>yes</cycleViewPreview>
-  </core>
   <theme>
     <name>Old-Style-128dpi</name>
     <cornerRadius>0</cornerRadius>
