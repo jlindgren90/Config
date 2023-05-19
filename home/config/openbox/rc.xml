@@ -262,10 +262,9 @@
         <command>j-login-lock</command>
       </action>
     </keybind>
-    <!-- Quit OpenBox -->
     <keybind key="W-Q">
-      <action name="Exit">
-        <prompt>yes</prompt>
+      <action name="Execute">
+        <command>xlogout</command>
       </action>
     </keybind>
   </keyboard>

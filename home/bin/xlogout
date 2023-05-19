@@ -1,0 +1,5 @@
+#!/bin/sh
+
+Xdialog --title "Log Out" --icon system-log-out \
+  --buttons-style text --ok-label "Log out" --cancel-label "Cancel" \
+  --yesno "Do you want to log out?" 0 0 && pkill openbox
