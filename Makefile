@@ -8,15 +8,18 @@ all: tools/quick-settings tools/shorten tools/xlogout
 
 tools/quick-settings: tools/quick-settings.cc
 	g++ ${CXXFLAGS} ${GUI_CFLAGS} -o tools/quick-settings tools/quick-settings.cc ${GUI_LIBS}
+	strip -s tools/quick-settings
 
 tools/shorten: tools/shorten.c
 	gcc ${CFLAGS} -o tools/shorten tools/shorten.c
+	strip -s tools/shorten
 
 tools/xlogout: tools/xlogout.cc
 	g++ ${CXXFLAGS} ${GUI_CFLAGS} -o tools/xlogout tools/xlogout.cc ${GUI_LIBS}
+	strip -s tools/xlogout
 
 clean:
-	rm -f tools/quick-settings tools/shorten
+	rm -f tools/quick-settings tools/shorten tools/xlogout
 
 install-user: all
 	${CP} home/bash_profile ${HOME}/.bash_profile
@@ -24,8 +27,11 @@ install-user: all
 	${CP} home/profile ${HOME}/.profile
 	${CP} home/xsession ${HOME}/.xsession
 	${CP} -r home/bin ${HOME}/
+	rm -f ${HOME}/bin/quick-settings
 	${CP} tools/quick-settings ${HOME}/bin/quick-settings
+	rm -f ${HOME}/bin/shorten
 	${CP} tools/shorten ${HOME}/bin/shorten
+	rm -f ${HOME}/bin/xlogout
 	${CP} tools/xlogout ${HOME}/bin/xlogout
 	mkdir -p ${HOME}/.config
 	${CP} -r home/config/* ${HOME}/.config/
