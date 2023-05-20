@@ -4,13 +4,16 @@ GUI_CFLAGS = $(shell pkg-config --cflags glib-2.0 Qt5Widgets) -fPIC
 GUI_LIBS = $(shell pkg-config --libs glib-2.0 Qt5Widgets)
 CP = cp --preserve=mode
 
-all: tools/quick-settings tools/shorten
+all: tools/quick-settings tools/shorten tools/xlogout
 
 tools/quick-settings: tools/quick-settings.cc
 	g++ ${CXXFLAGS} ${GUI_CFLAGS} -o tools/quick-settings tools/quick-settings.cc ${GUI_LIBS}
 
 tools/shorten: tools/shorten.c
 	gcc ${CFLAGS} -o tools/shorten tools/shorten.c
+
+tools/xlogout: tools/xlogout.cc
+	g++ ${CXXFLAGS} ${GUI_CFLAGS} -o tools/xlogout tools/xlogout.cc ${GUI_LIBS}
 
 clean:
 	rm -f tools/quick-settings tools/shorten
@@ -48,6 +51,7 @@ install-system:
 	find usr/lib -type f -exec install -m644 \{\} ${DESTDIR}/\{\} \;
 	install tools/quick-settings ${DESTDIR}/usr/bin/quick-settings
 	install tools/shorten ${DESTDIR}/usr/bin/shorten
+	install tools/xlogout ${DESTDIR}/usr/bin/xlogout
 	install -d -m750 ${DESTDIR}/root
 	install -m640 root/Xdefaults ${DESTDIR}/root/.Xdefaults
 	install -m640 root/gtkrc-2.0 ${DESTDIR}/root/.gtkrc-2.0

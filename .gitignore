@@ -1,5 +1,6 @@
 pkg/
 src/
 *.pkg.tar.*
-quick-settings
-shorten
+tools/quick-settings
+tools/shorten
+tools/xlogout

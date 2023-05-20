@@ -24,7 +24,6 @@ depends=(
     'maim'
     'wmctrl'
     'xclip'
-    'xdialog'
 
     # quick-settings
     'aeq'
