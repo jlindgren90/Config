@@ -132,4 +132,5 @@
       <pointerSpeed>-0.5</pointerSpeed>
     </device>
   </libinput>
+  <resize popupShow="Nonpixel"/>
 </labwc_config>
