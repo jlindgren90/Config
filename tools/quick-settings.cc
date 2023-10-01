@@ -79,12 +79,17 @@ int main(int argc, char ** argv)
 
     QSystemTrayIcon icon(QIcon::fromTheme("preferences-system"));
 
-    QObject::connect(&icon, &QSystemTrayIcon::activated,
-                     [&icon, inifile](QSystemTrayIcon::ActivationReason reason)
-                     {
-                         if (reason == QSystemTrayIcon::Trigger)
-                             showMenu(inifile.get(), icon.geometry().topLeft());
-                     });
+    QObject::connect(
+        &icon, &QSystemTrayIcon::activated,
+        [&icon, inifile](QSystemTrayIcon::ActivationReason reason) {
+            if (reason == QSystemTrayIcon::Trigger)
+            {
+                QPoint pos = icon.geometry().topLeft();
+                if (pos.isNull()) /* happens with QDBusTrayIcon */
+                    pos = QCursor::pos();
+                showMenu(inifile.get(), pos);
+            }
+        });
 
     icon.show();
 
