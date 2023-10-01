@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QMenu>
+#include <QPointer>
 #include <QSystemTrayIcon>
 
 #include <glib.h>
@@ -11,6 +12,8 @@ static std::shared_ptr<T> to_shared(T * ptr, D deleter)
 {
     return std::shared_ptr<T>(ptr, deleter);
 }
+
+static QPointer<QMenu> s_menu;
 
 static void showMenu(GKeyFile * inifile, const QPoint & pos)
 {
@@ -59,6 +62,7 @@ static void showMenu(GKeyFile * inifile, const QPoint & pos)
 
     menu->setAttribute(Qt::WA_DeleteOnClose);
     menu->popup(pos);
+    s_menu = menu;
 }
 
 int main(int argc, char ** argv)
@@ -84,10 +88,17 @@ int main(int argc, char ** argv)
         [&icon, inifile](QSystemTrayIcon::ActivationReason reason) {
             if (reason == QSystemTrayIcon::Trigger)
             {
-                QPoint pos = icon.geometry().topLeft();
-                if (pos.isNull()) /* happens with QDBusTrayIcon */
-                    pos = QCursor::pos();
-                showMenu(inifile.get(), pos);
+                if (s_menu.isNull())
+                {
+                    QPoint pos = icon.geometry().topLeft();
+                    if (pos.isNull()) /* happens with QDBusTrayIcon */
+                        pos = QCursor::pos();
+                    showMenu(inifile.get(), pos);
+                }
+                else
+                {
+                    s_menu->deleteLater();
+                }
             }
         });
 
