@@ -8,7 +8,3 @@ xsettingsd -c ~/.config/xsettings &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 qmpanel &
-cbatticon &
-nm-applet &
-quick-settings &
-volumeicon &
