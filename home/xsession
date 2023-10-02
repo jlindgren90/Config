@@ -24,10 +24,4 @@ srandrd setup-desktop
 picom &
 qmpanel &
 
-( sleep 1 ;
-  cbatticon &
-  nm-applet --indicator &
-  quick-settings &
-  exec volumeicon ) &
-
 exec openbox
