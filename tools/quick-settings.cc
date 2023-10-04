@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QMenu>
 #include <QPointer>
+#include <QScreen>
 #include <QSystemTrayIcon>
 
 #include <glib.h>
@@ -65,6 +66,15 @@ static void showMenu(GKeyFile * inifile, const QPoint & pos)
     s_menu = menu;
 }
 
+static QPoint boundedCursorPos()
+{
+    auto pos = QCursor::pos();
+    auto geom = QApplication::primaryScreen()->availableVirtualGeometry();
+    pos.setX(qMin(qMax(pos.x(), geom.x()), geom.x() + geom.width()));
+    pos.setY(qMin(qMax(pos.y(), geom.y()), geom.y() + geom.height()));
+    return pos;
+}
+
 int main(int argc, char ** argv)
 {
     QApplication app(argc, argv);
@@ -90,9 +100,9 @@ int main(int argc, char ** argv)
             {
                 if (s_menu.isNull())
                 {
-                    QPoint pos = icon.geometry().topLeft();
+                    auto pos = icon.geometry().topLeft();
                     if (pos.isNull()) /* happens with QDBusTrayIcon */
-                        pos = QCursor::pos();
+                        pos = boundedCursorPos();
                     showMenu(inifile.get(), pos);
                 }
                 else
