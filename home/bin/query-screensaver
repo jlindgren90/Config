@@ -1,0 +1,2 @@
+#!/bin/sh
+xset q | grep -q 'timeout:  600'
