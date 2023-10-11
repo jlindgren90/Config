@@ -1,2 +1,6 @@
 #!/bin/sh
-xset q | grep -q 'timeout:  600'
+if test -n "$WAYLAND_DISPLAY" ; then
+    pgrep -u "$USER" swayidle >/dev/null
+else
+    xset q | grep -q 'timeout:  600'
+fi
