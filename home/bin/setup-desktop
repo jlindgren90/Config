@@ -1,4 +1,14 @@
 #!/bin/sh
 
-setup-displays
-feh --bg-fill "$HOME/.wallpaper.jpg"
+if test "$(</etc/dual-displays)" = "1" ; then
+    cp "$HOME/.config/kanshi/config-dual" "$HOME/.config/kanshi/config"
+else
+    cp "$HOME/.config/kanshi/config-ext" "$HOME/.config/kanshi/config"
+fi
+
+if test -n "$WAYLAND_DISPLAY" ; then
+    pkill -HUP kanshi
+else
+    setup-displays
+    feh --bg-fill "$HOME/.wallpaper.jpg"
+fi
