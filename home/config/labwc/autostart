@@ -1,5 +1,6 @@
 kanshi &
 swaybg -i ~/.wallpaper.jpg &
+swayidle -w &
 
 xrdb ~/.config/xresources
 xsettingsd -c ~/.config/xsettings &
