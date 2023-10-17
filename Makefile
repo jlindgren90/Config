@@ -46,7 +46,7 @@ install-user: all
 	gsettings set org.gnome.desktop.interface icon-theme gnome
 	gsettings set org.gnome.desktop.interface text-scaling-factor 1.33333
 	# generate swaylock background
-	echo "Session locked by ${USER} - enter password to unlock" \
+	echo "Enter ${USER}'s password to unlock this session:" \
 	 >${HOME}/.config/swaylock/locktext.txt
 	pango-view --background="#303030" --foreground="#f0f0f0" --font="Sans 10" \
 	 --dpi=128 -qo ${HOME}/.config/swaylock/locktext.png \
