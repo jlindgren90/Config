@@ -67,7 +67,7 @@ depends=(
 
     # optional deps
     'gnome-keyring'  # network-manager (wifi passwords)
-    'kio'            # libreoffice (kf5 backend)
+    'kio5'           # libreoffice (kf5 backend)
     'tumbler'        # thunar (thumbnails)
 )
 
