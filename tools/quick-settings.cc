@@ -4,6 +4,7 @@
 #include <QScreen>
 #include <QSystemTrayIcon>
 
+#include <functional>
 #include <glib.h>
 #include <memory>
 #include <stdio.h>
@@ -14,12 +15,10 @@ static std::shared_ptr<T> to_shared(T * ptr, D deleter)
     return std::shared_ptr<T>(ptr, deleter);
 }
 
-static QPointer<QMenu> s_menu;
-
-static void showMenu(GKeyFile * inifile, const QPoint & pos)
+static void initMenu(QMenu * menu, GKeyFile * inifile)
 {
-    auto menu = new QMenu();
     auto items = to_shared(g_key_file_get_groups(inifile, nullptr), g_strfreev);
+    auto updates = std::make_shared<QList<std::function<void()>>>();
 
     for (char ** i = items.get(); *i; i++)
     {
@@ -35,14 +34,25 @@ static void showMenu(GKeyFile * inifile, const QPoint & pos)
 
         if (query && enable && disable)
         {
-            bool enabled = (system(query.get()) == 0);
-            auto toggle = enabled ? disable : enable;
             auto action = new QAction(item, menu);
-
             action->setCheckable(true);
-            action->setChecked(enabled);
+
+            auto update = [action, query]() {
+                action->setChecked((system(query.get()) == 0));
+            };
+            updates->append(update);
+            update();
+
             QObject::connect(action, &QAction::triggered,
-                             [toggle]() { system(toggle.get()); });
+                             [enable, disable, updates](bool checked) {
+                                 if (checked)
+                                     system(enable.get());
+                                 else
+                                     system(disable.get());
+                                 /* update other toggles */
+                                 for (auto & update : *updates)
+                                     update();
+                             });
 
             menu->addAction(action);
         }
@@ -60,19 +70,6 @@ static void showMenu(GKeyFile * inifile, const QPoint & pos)
                     item);
         }
     }
-
-    menu->setAttribute(Qt::WA_DeleteOnClose);
-    menu->popup(pos);
-    s_menu = menu;
-}
-
-static QPoint boundedCursorPos()
-{
-    auto pos = QCursor::pos();
-    auto geom = QApplication::primaryScreen()->availableVirtualGeometry();
-    pos.setX(qMin(qMax(pos.x(), geom.x()), geom.x() + geom.width()));
-    pos.setY(qMin(qMax(pos.y(), geom.y()), geom.y() + geom.height()));
-    return pos;
 }
 
 int main(int argc, char ** argv)
@@ -91,27 +88,11 @@ int main(int argc, char ** argv)
         return 1;
     }
 
+    QMenu menu;
+    initMenu(&menu, inifile.get());
+
     QSystemTrayIcon icon(QIcon::fromTheme("preferences-system"));
-
-    QObject::connect(
-        &icon, &QSystemTrayIcon::activated,
-        [&icon, inifile](QSystemTrayIcon::ActivationReason reason) {
-            if (reason == QSystemTrayIcon::Trigger)
-            {
-                if (s_menu.isNull())
-                {
-                    auto pos = icon.geometry().topLeft();
-                    if (pos.isNull()) /* happens with QDBusTrayIcon */
-                        pos = boundedCursorPos();
-                    showMenu(inifile.get(), pos);
-                }
-                else
-                {
-                    s_menu->deleteLater();
-                }
-            }
-        });
-
+    icon.setContextMenu(&menu);
     icon.show();
 
     return app.exec();
