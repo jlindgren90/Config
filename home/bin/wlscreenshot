@@ -1,0 +1,3 @@
+#!/bin/sh
+file=~/tmp/$(date '+Screenshot %F %T.png')
+grim -g "$(slurp)" "$file" && xdg-open "$file"
