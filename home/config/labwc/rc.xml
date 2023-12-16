@@ -9,6 +9,12 @@
       <weight>Bold</weight>
       <slant>Normal</slant>
     </font>
+    <font place="InactiveWindow">
+      <name>Sans</name>
+      <size>13</size>
+      <weight>Bold</weight>
+      <slant>Normal</slant>
+    </font>
     <font place="MenuItem">
       <name>Sans</name>
       <size>13</size>
