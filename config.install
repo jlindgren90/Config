@@ -7,14 +7,6 @@ post_install() {
         sed -i 's/pam_umask\.so$/pam_umask\.so umask=027/' /etc/pam.d/system-login
     fi
 
-    if grep -q '# umask' /etc/profile ; then
-        echo "*** umask already commented in /etc/profile"
-    else
-        echo "*** commenting umask in /etc/profile"
-        cp --preserve=mode /etc/profile /etc/profile~ &&
-        sed -i 's/^umask/# umask/' /etc/profile
-    fi
-
     if grep -q Vanilla-DMZ /usr/share/icons/default/index.theme ; then
         echo "*** cursor theme already set to Vanilla-DMZ"
     else
