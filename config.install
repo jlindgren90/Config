@@ -1,14 +1,10 @@
 post_install() {
-    if grep -q pam_umask /etc/pam.d/system-login ; then
-        echo "*** pam_umask already present in /etc/pam.d/system-login"
+    if grep -q 'umask=027' /etc/pam.d/system-login ; then
+        echo "*** umask=027 already present in /etc/pam.d/system-login"
     else
-        echo "*** adding pam_umask to /etc/pam.d/system-login"
+        echo "*** adding umask=027 to /etc/pam.d/system-login"
         cp --preserve=mode /etc/pam.d/system-login /etc/pam.d/system-login~ &&
-        cat <<EOF >> /etc/pam.d/system-login
-
-# added by config package
-session required pam_umask.so umask=027
-EOF
+        sed -i 's/pam_umask\.so$/pam_umask\.so umask=027/' /etc/pam.d/system-login
     fi
 
     if grep -q '# umask' /etc/profile ; then
