@@ -132,6 +132,14 @@
         <action name="None"/>
       </mousebind>
     </context>
+    <context name="TitleBar">
+      <mousebind direction="Up" action="Scroll">
+        <action name="None"/>
+      </mousebind>
+      <mousebind direction="Down" action="Scroll">
+        <action name="None"/>
+      </mousebind>
+    </context>
   </mouse>
   <libinput>
     <device category="Logitech Wireless Mouse">
