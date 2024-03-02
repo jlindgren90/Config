@@ -26,6 +26,7 @@ install-user: all
 	${CP} home/bashrc ${HOME}/.bashrc
 	${CP} home/profile ${HOME}/.profile
 	${CP} home/xsession ${HOME}/.xsession
+	ln -sf .xsession ${HOME}/.xinitrc
 	${CP} -r home/bin ${HOME}/
 	rm -f ${HOME}/bin/quick-settings
 	${CP} tools/quick-settings ${HOME}/bin/quick-settings
