@@ -51,6 +51,16 @@ depends=(
     'xorg-xrdb'
     'xsettingsd'
 
+    # wayland
+    'grim'
+    'kanshi'
+    'labwc'
+    'slurp'
+    'swaybg'
+    'swayidle'
+    'swaylock'
+    'wlopm'
+
     # acpi/udev
     'acpid'
     'ethtool'
