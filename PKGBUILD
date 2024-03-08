@@ -33,6 +33,7 @@ depends=(
     'default-cursors'
     'gnome-icon-theme'
     'qt5ct'
+    'qt6ct'
     'old-style-theme'
     'xcursor-vanilla-dmz'
 
