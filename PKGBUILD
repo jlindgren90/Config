@@ -60,6 +60,7 @@ depends=(
     'swaybg'
     'swayidle'
     'swaylock'
+    'vulkan-driver'
     'wlopm'
 
     # acpi/udev
