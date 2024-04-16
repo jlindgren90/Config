@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# clean caches
+journalctl --rotate --vacuum-time=1d
 pacman -Scc
 
 gtk-update-icon-cache /usr/share/icons/gnome
