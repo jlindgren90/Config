@@ -55,12 +55,12 @@
   <style name="RemovedLine" foreground="#d65645"/>
   <style name="DiffFile" foreground="#66a334"/>
   <style name="DiffLocation" foreground="#d6c540"/>
-  <style name="DiffFileLine" foreground="#2e2f30" background="#d6c540"/>
-  <style name="DiffContextLine" foreground="#2e2f30" background="#65676a"/>
-  <style name="DiffSourceLine" background="#8a2c40"/>
-  <style name="DiffSourceChar" foreground="#2e2f30" background="#c34141"/>
-  <style name="DiffDestLine" background="#588a2c"/>
-  <style name="DiffDestChar" foreground="#2e2f30" background="#7cc33e"/>
+  <style name="DiffFileLine" foreground="#cccc00" background="#474747"/>
+  <style name="DiffContextLine" foreground="#00cccc"/>
+  <style name="DiffSourceLine" foreground="#cc0000"/>
+  <style name="DiffSourceChar" foreground="#cc0000" background="#472222"/>
+  <style name="DiffDestLine" foreground="#00aa00"/>
+  <style name="DiffDestChar" foreground="#00aa00" background="#224722"/>
   <style name="LogChangeLine" foreground="#d65645"/>
   <style name="LogAuthorName" foreground="#ceffe5"/>
   <style name="LogCommitDate" foreground="#00ff00"/>
