@@ -1,0 +1,35 @@
+#!/bin/sh
+
+if test "$#" -ne 1 ; then
+    echo "Usage: update-cfgfile <file>"
+    exit 1
+fi
+
+new="$1.pacnew"
+tmp="$HOME/tmp/$(basename "$1")"
+
+if ! test -f "$1" ; then
+    echo "Not a regular file: $1"
+    exit 1
+fi
+if ! test -f "$new" ; then
+    echo "Not a regular file: $new"
+    exit 1
+fi
+
+cp "$1" "$tmp" || exit 1
+bcompare "$tmp" "$new"
+
+read -p "Update $1? (y/N)" yn
+case "$yn" in
+    [Yy]* )
+        sudo cp -a "$1" "$1~" || exit 1
+        sudo mv "$new" "$1.orig" || exit 1
+        sudo cp "$tmp" "$1" || exit 1
+        rm "$tmp"
+        echo "Updated $1"
+        ;;
+    * )
+        echo "Did not update $1"
+        ;;
+esac
