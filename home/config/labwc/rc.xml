@@ -77,6 +77,11 @@
         <command>xfce4-terminal</command>
       </action>
     </keybind>
+    <keybind key="W-w">
+      <action name="Execute">
+        <command>firefox</command>
+      </action>
+    </keybind>
     <keybind key="Print">
       <action name="Execute">
         <command>wlscreenshot</command>
@@ -122,7 +127,7 @@
         <command>swaylock</command>
       </action>
     </keybind>
-    <keybind key="W-Q">
+    <keybind key="W-q">
       <action name="Execute">
         <command>xlogout</command>
       </action>
