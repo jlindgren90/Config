@@ -1,7 +1,0 @@
-#!/bin/sh
-if test -n "$WAYLAND_DISPLAY" ; then
-    pkill swayidle
-else
-    xset s 0
-    xset -dpms
-fi

@@ -1,6 +1,2 @@
-pkg/
-src/
-*.pkg.tar.*
 tools/clutter
-tools/quick-settings
 tools/xlogout
