@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Categories=Session
-Name=Run ...
-Icon=system-run
-Exec=gmrun
