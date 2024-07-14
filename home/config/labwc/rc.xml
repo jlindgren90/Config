@@ -61,6 +61,9 @@
     <keybind key="W-Up">
       <action name="ToggleMaximize"/>
     </keybind>
+    <keybind key="W-Down">
+      <action name="Iconify"/>
+    </keybind>
     <!-- Application shortcuts -->
     <keybind key="W-e">
       <action name="Execute">
