@@ -1,0 +1,6 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+AccessModifierOffset: -4
+BreakBeforeBraces: Linux
+SpaceAfterTemplateKeyword: false
+AlwaysBreakTemplateDeclarations: Yes

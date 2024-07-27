@@ -10,19 +10,18 @@
 #include <stdio.h>
 
 template<typename T, typename D>
-static std::shared_ptr<T> to_shared(T * ptr, D deleter)
+static std::shared_ptr<T> to_shared(T *ptr, D deleter)
 {
     return std::shared_ptr<T>(ptr, deleter);
 }
 
-static void initMenu(QMenu * menu, GKeyFile * inifile)
+static void initMenu(QMenu *menu, GKeyFile *inifile)
 {
     auto items = to_shared(g_key_file_get_groups(inifile, nullptr), g_strfreev);
     auto updates = std::make_shared<QList<std::function<void()>>>();
 
-    for (char ** i = items.get(); *i; i++)
-    {
-        const char * item = *i;
+    for (char **i = items.get(); *i; i++) {
+        const char *item = *i;
         auto query = to_shared(
             g_key_file_get_value(inifile, item, "query", nullptr), g_free);
         auto enable = to_shared(
@@ -32,8 +31,7 @@ static void initMenu(QMenu * menu, GKeyFile * inifile)
         auto command = to_shared(
             g_key_file_get_value(inifile, item, "command", nullptr), g_free);
 
-        if (query && enable && disable)
-        {
+        if (query && enable && disable) {
             auto action = new QAction(item, menu);
             action->setCheckable(true);
 
@@ -50,29 +48,25 @@ static void initMenu(QMenu * menu, GKeyFile * inifile)
                                  else
                                      system(disable.get());
                                  /* update other toggles */
-                                 for (auto & update : *updates)
+                                 for (auto &update : *updates)
                                      update();
                              });
 
             menu->addAction(action);
-        }
-        else if (command)
-        {
+        } else if (command) {
             auto action = new QAction(item, menu);
             QObject::connect(action, &QAction::triggered,
                              [command]() { system(command.get()); });
 
             menu->addAction(action);
-        }
-        else
-        {
+        } else {
             fprintf(stderr, "Item \'%s\' does not contain required keys!\n",
                     item);
         }
     }
 }
 
-int main(int argc, char ** argv)
+int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
@@ -82,8 +76,7 @@ int main(int argc, char ** argv)
                              g_free);
 
     if (!g_key_file_load_from_file(inifile.get(), inipath.get(),
-                                   G_KEY_FILE_NONE, nullptr))
-    {
+                                   G_KEY_FILE_NONE, nullptr)) {
         fprintf(stderr, "Unable to load %s!\n", inipath.get());
         return 1;
     }

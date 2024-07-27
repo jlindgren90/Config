@@ -24,6 +24,7 @@ clean:
 install-user: all
 	${CP} home/bash_profile ${HOME}/.bash_profile
 	${CP} home/bashrc ${HOME}/.bashrc
+	${CP} home/clang-format ${HOME}/.clang-format
 	${CP} home/profile ${HOME}/.profile
 	${CP} home/xsession ${HOME}/.xsession
 	ln -sf .xsession ${HOME}/.xinitrc
