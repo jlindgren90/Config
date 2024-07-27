@@ -1,4 +1,4 @@
-/* clutter.cc - Arch Linux version
+/* clutter.cc - Arch Linux + Debian version
    John Lindgren */
 
 #include <errno.h>
@@ -17,6 +17,8 @@
 #include <set>
 #include <string>
 #include <vector>
+
+#undef USE_DPKG
 
 using list_t = std::set<std::string>;
 using tree_t = std::map<std::string, list_t>;
@@ -57,18 +59,27 @@ std::vector<char> run(const char *command)
 
 list_t get_packages(void)
 {
-    auto data = run("pacman -Qq");
     list_t packages;
 
+#ifdef USE_DPKG
+    auto data = run("dpkg --get-selections");
     char *parse = data.data();
     while (*parse) {
         char *end = strchr(parse, '\n');
-        if (!end) {
+        char *div = strchr(parse, '\t');
+#else
+    auto data = run("pacman -Qq");
+    char *parse = data.data();
+    while (*parse) {
+        char *end = strchr(parse, '\n');
+        char *div = end;
+#endif
+        if (!end || !div || div > end) {
             fprintf(stderr, "package list invalid\n");
             exit(1);
         }
 
-        *end = 0;
+        *div = 0;
         packages.insert(parse);
         parse = end + 1;
     }
@@ -86,13 +97,21 @@ std::string merge_usr(const char *name)
 
 void add_package_files(const char *package, list_t &installed, list_t &shared)
 {
-    auto cmd = std::string("pacman -Ql \"") + package + "\"";
+#ifdef USE_DPKG
+    auto cmd = std::string("dpkg -L \"") + package + "\"";
     auto data = run(cmd.c_str());
-
     char *parse = data.data();
     while (*parse) {
-        char *div = strchr(parse, ' ');
         char *end = strchr(parse, '\n');
+        char *div = parse - 1;
+#else
+    auto cmd = std::string("pacman -Ql \"") + package + "\"";
+    auto data = run(cmd.c_str());
+    char *parse = data.data();
+    while (*parse) {
+        char *end = strchr(parse, '\n');
+        char *div = strchr(parse, ' ');
+#endif
         if (!div || !end || div > end) {
             fprintf(stderr, "file list invalid\n");
             exit(1);
