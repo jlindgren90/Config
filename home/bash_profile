@@ -4,5 +4,6 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+  proptest -M i915 -D /dev/dri/card0 77 connector 79 2
   exec labwc >"$XDG_RUNTIME_DIR"/labwc.log 2>&1
 fi
