@@ -85,6 +85,21 @@
         <command>firefox</command>
       </action>
     </keybind>
+    <keybind key="W-n">
+      <action name="Execute">
+        <command>firefox --kiosk netflix.com</command>
+      </action>
+    </keybind>
+    <keybind key="W-s">
+      <action name="Execute">
+        <command>firefox --kiosk spotify.com</command>
+      </action>
+    </keybind>
+    <keybind key="W-y">
+      <action name="Execute">
+        <command>firefox --kiosk youtube.com</command>
+      </action>
+    </keybind>
     <keybind key="W-q">
       <action name="Execute">
         <command>xlogout</command>
