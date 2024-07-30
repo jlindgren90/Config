@@ -93,54 +93,19 @@
         <command>firefox</command>
       </action>
     </keybind>
-    <keybind key="Print">
+    <keybind key="W-n">
       <action name="Execute">
-        <command>wlscreenshot</command>
+        <command>firefox --kiosk netflix.com</command>
       </action>
     </keybind>
-    <keybind key="C-equal">
+    <keybind key="W-s">
       <action name="Execute">
-        <command>sh -c "wlrctl window focus galculator || exec galculator"</command>
+        <command>firefox --kiosk spotify.com</command>
       </action>
     </keybind>
-    <keybind key="XF86Calculator">
+    <keybind key="W-y">
       <action name="Execute">
-        <command>sh -c "wlrctl window focus galculator || exec galculator"</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioPlay" allowWhenLocked="yes">
-      <action name="Execute">
-        <command>playerctl play-pause</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioPrev" allowWhenLocked="yes">
-      <action name="Execute">
-        <command>playerctl previous</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioNext" allowWhenLocked="yes">
-      <action name="Execute">
-        <command>playerctl next</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioRaiseVolume" allowWhenLocked="yes">
-      <action name="Execute">
-        <command>amixer set Master 3%+</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioLowerVolume" allowWhenLocked="yes">
-      <action name="Execute">
-        <command>amixer set Master 3%-</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioMute" allowWhenLocked="yes">
-      <action name="Execute">
-        <command>amixer set Master toggle</command>
-      </action>
-    </keybind>
-    <keybind key="C-A-Delete">
-      <action name="Execute">
-        <command>swaylock</command>
+        <command>firefox --kiosk youtube.com</command>
       </action>
     </keybind>
     <keybind key="W-q">
