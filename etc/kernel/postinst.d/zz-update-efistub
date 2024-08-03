@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir -p /boot/efi/EFI/Debian
+cp --verbose "$2" /boot/efi/EFI/Debian/vmlinuz
