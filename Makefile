@@ -135,3 +135,5 @@ user-all: user-core user-dev user-scripts user-labwc user-openbox user-xfce
 system:
 	find etc -type d -exec install -d ${DESTDIR}/\{\} \;
 	find etc -type f -exec install -m644 \{\} ${DESTDIR}/\{\} \;
+	chmod 0755 ${DESTDIR}/etc/kernel/postinst.d/zz-update-efistub
+	chmod 0755 ${DESTDIR}/etc/initramfs/post-update.d/zz-update-efistub
