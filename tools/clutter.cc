@@ -18,7 +18,7 @@
 #include <string>
 #include <vector>
 
-#undef USE_DPKG
+#define USE_DPKG
 
 using list_t = std::set<std::string>;
 using tree_t = std::map<std::string, list_t>;
