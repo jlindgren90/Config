@@ -10,3 +10,6 @@ home/config/openbox/rc.xml
 home/config/xprofile
 home/config/xresources
 home/config/xsettings
+
+# debian
+config-0.1-1*

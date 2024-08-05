@@ -1,0 +1,6 @@
+Package: config
+Version: 0.1-1
+Architecture: all
+Maintainer: John Lindgren <john@jlindgren.net>
+Description: System configuration
+ This package contains system configuration files.
