@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+git show "$1"^1:"$2" >"$2".ours
+git show "$1"^2:"$2" >"$2".theirs
+git show `git merge-base "$1"^1 "$1"^2`:"$2" >"$2".base
+bcompare "$2".ours "$2".theirs "$2".base "$2"
