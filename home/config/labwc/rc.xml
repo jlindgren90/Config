@@ -2,6 +2,7 @@
 <labwc_config>
   <theme>
     <name>Old-Style-128dpi</name>
+    <icon>gnome</icon>
     <cornerRadius>0</cornerRadius>
     <font place="ActiveWindow">
       <name>Sans</name>
