@@ -1,4 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Hidden Application
-Hidden=true
+Name=XTerm
+Exec=xterm
+Icon=xterm-color_48x48
+StartupWMClass=XTerm
+NoDisplay=true
