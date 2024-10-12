@@ -35,6 +35,8 @@ install-user: all
 	${CP} tools/clutter ${HOME}/bin/clutter
 	rm -f ${HOME}/bin/xlogout
 	${CP} tools/xlogout ${HOME}/bin/xlogout
+	# force xfconf reload
+	pkill xfconfd
 	mkdir -p ${HOME}/.config
 	${CP} -r home/config/* ${HOME}/.config/
 	mkdir -p ${HOME}/.local
