@@ -1,0 +1,21 @@
+#!/bin/sh
+
+mkdir -p dated
+mkdir -p failed
+
+for i in "$@" ; do
+    if grep -q "$i" dated-images ; then
+        echo "Skip $i"
+    else
+        DATE=$(exiftool "$i" | grep 'Create Date' | head -n1 | cut -c35- | sed 's/[: ]/_/g')
+        EXT="${i##*.}"
+        if test -n "$DATE" ; then
+            echo "Date $i"
+            cp "$i" "dated/${DATE}.${EXT}"
+            echo "$i" >> dated-images
+        else
+            echo "Failed to date $i"
+            cp "$i" failed/
+        fi
+    fi
+done
