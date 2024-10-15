@@ -1,5 +1,6 @@
 #!/bin/sh
 
 export EDITOR="nano"
-export PATH="$PATH:$HOME/bin"
+export GEM_HOME="$HOME/.gem"
+export PATH="$PATH:$HOME/bin:$HOME/.gem/bin"
 ulimit -n 65536
