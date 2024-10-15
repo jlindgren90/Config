@@ -53,8 +53,8 @@ user-dirs:
 	mkdir -p ${HOME}/.config
 
 user-core: core-tools user-dirs
+	${CP} home/bash_aliases ${HOME}/.bash_aliases
 	${CP} home/bash_profile ${HOME}/.bash_profile
-	${CP} home/bashrc ${HOME}/.bashrc
 	${CP} home/profile ${HOME}/.profile
 	rm -f ${HOME}/bin/clutter
 	${CP} tools/clutter ${HOME}/bin/clutter
