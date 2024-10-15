@@ -53,6 +53,12 @@ install-user: all
 	xfconf-query -c thunar -n -t int -p /last-window-width -s 1200
 	xfconf-query -c thunar -n -t int -p /last-window-height -s 800
 	xfconf-query -c thunar -n -t int -p /last-separator-position -s 250
+	xfconf-query -c xsettings -n -t string -p /Gtk/CursorThemeName -s default
+	xfconf-query -c xsettings -n -t string -p /Gtk/FontName -s "Sans 10"
+	xfconf-query -c xsettings -n -t string -p /Net/IconThemeName -s gnome
+	xfconf-query -c xsettings -n -t string -p /Net/ThemeName -s Old-Style-128dpi
+	xfconf-query -c xsettings -n -t string -p /Xft/HintStyle -s hintnone
+	xfconf-query -c xsettings -n -t int -p /Xft/DPI -s 128
 	# generate swaylock background
 	echo "Enter ${USER}'s password to unlock this session:" \
 	 >${HOME}/.config/swaylock/locktext.txt
