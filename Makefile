@@ -35,8 +35,6 @@ install-user: all
 	${CP} tools/clutter ${HOME}/bin/clutter
 	rm -f ${HOME}/bin/xlogout
 	${CP} tools/xlogout ${HOME}/bin/xlogout
-	# force xfconf reload
-	pkill xfconfd
 	mkdir -p ${HOME}/.config
 	${CP} -r home/config/* ${HOME}/.config/
 	mkdir -p ${HOME}/.local
@@ -49,6 +47,12 @@ install-user: all
 	gsettings set org.gnome.desktop.interface gtk-theme Old-Style-128dpi
 	gsettings set org.gnome.desktop.interface icon-theme gnome
 	gsettings set org.gnome.desktop.interface text-scaling-factor 1.33333
+	# XFCE settings
+	xfconf-query -c thunar -n -t string -p /last-view -s ThunarCompactView
+	xfconf-query -c thunar -n -t string -p /last-compact-view-zoom-level -s THUNAR_ZOOM_LEVEL_38_PERCENT
+	xfconf-query -c thunar -n -t int -p /last-window-width -s 1200
+	xfconf-query -c thunar -n -t int -p /last-window-height -s 800
+	xfconf-query -c thunar -n -t int -p /last-separator-position -s 250
 	# generate swaylock background
 	echo "Enter ${USER}'s password to unlock this session:" \
 	 >${HOME}/.config/swaylock/locktext.txt
