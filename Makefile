@@ -4,7 +4,9 @@ GUI_CFLAGS = $(shell pkg-config --cflags glib-2.0 Qt6Widgets) -fPIC
 GUI_LIBS = $(shell pkg-config --libs glib-2.0 Qt6Widgets)
 CP = cp --preserve=mode
 
-all: tools/clutter tools/quick-settings tools/xlogout
+core-tools: tools/clutter
+
+gui-tools: tools/quick-settings tools/xlogout
 
 tools/clutter: tools/clutter.cc
 	g++ ${CXXFLAGS} -o tools/clutter tools/clutter.cc
@@ -21,25 +23,53 @@ tools/xlogout: tools/xlogout.cc
 clean:
 	rm -f tools/quick-settings tools/shorten tools/xlogout
 
-install-user: all
+user-dirs:
+	mkdir -p ${HOME}/bin
+	mkdir -p ${HOME}/.config
+
+user-core: core-tools user-dirs
 	${CP} home/bash_profile ${HOME}/.bash_profile
 	${CP} home/bashrc ${HOME}/.bashrc
-	${CP} home/clang-format ${HOME}/.clang-format
 	${CP} home/profile ${HOME}/.profile
-	${CP} home/xsession ${HOME}/.xsession
-	ln -sf .xsession ${HOME}/.xinitrc
-	${CP} -r home/bin ${HOME}/
-	rm -f ${HOME}/bin/quick-settings
-	${CP} tools/quick-settings ${HOME}/bin/quick-settings
 	rm -f ${HOME}/bin/clutter
 	${CP} tools/clutter ${HOME}/bin/clutter
+
+user-dev: user-dirs
+	${CP} home/clang-format ${HOME}/.clang-format
+	${CP} -r home/config/{geany,QtProject} ${HOME}/.config/
+
+user-scripts: user-dirs
+	${CP} home/bin/* ${HOME}/bin/
+
+user-gui-common: user-dirs
+	${CP} -r home/config/{gtk-3.0,qt5ct,qt6ct} ${HOME}/.config/
+	mkdir -p ${HOME}/.config/xfce4
+	${CP} -r home/config/xfce4/terminal ${HOME}/.config/xfce4/
+	${CP} home/config/xprofile ${HOME}/.config/
+	xdg-mime default thunar.desktop inode/directory
+	# Thunar settings
+	xfconf-query -c thunar -n -t string -p /last-view -s ThunarCompactView
+	xfconf-query -c thunar -n -t string -p /last-compact-view-zoom-level -s THUNAR_ZOOM_LEVEL_38_PERCENT
+	xfconf-query -c thunar -n -t int -p /last-window-width -s 1200
+	xfconf-query -c thunar -n -t int -p /last-window-height -s 800
+	xfconf-query -c thunar -n -t int -p /last-separator-position -s 250
+
+user-wm-common: gui-tools user-gui-common
+	rm -f ${HOME}/bin/quick-settings
+	${CP} tools/quick-settings ${HOME}/bin/quick-settings
 	rm -f ${HOME}/bin/xlogout
 	${CP} tools/xlogout ${HOME}/bin/xlogout
-	mkdir -p ${HOME}/.config
-	${CP} -r home/config/* ${HOME}/.config/
-	mkdir -p ${HOME}/.local
-	${CP} -r home/local/* ${HOME}/.local/
-	xdg-mime default thunar.desktop inode/directory
+	${CP} home/bin/{disable,enable,query}-screensaver ${HOME}/bin/
+	${CP} home/bin/{playpause,run-once,setup-desktop} ${HOME}/bin/
+	${CP} -r home/config/volumeicon ${HOME}/.config/
+	${CP} home/config/{qmpanel.ini,quick-settings.ini} ${HOME}/.config/
+	${CP} home/config/{xresources,xsettings} ${HOME}/.config/
+	mkdir -p ${HOME}/.local/share
+	${CP} -r home/local/share/applications ${HOME}/.local/share/
+
+user-labwc: user-wm-common
+	${CP} home/bin/wlscreenshot ${HOME}/bin/
+	${CP} -r home/config/{kanshi,labwc,swayidle,swaylock} ${HOME}/.config/
 	# GTK/Wayland settings
 	gsettings set org.gnome.desktop.interface cursor-theme default
 	gsettings set org.gnome.desktop.interface font-antialiasing rgba
@@ -47,12 +77,22 @@ install-user: all
 	gsettings set org.gnome.desktop.interface gtk-theme Old-Style-128dpi
 	gsettings set org.gnome.desktop.interface icon-theme gnome
 	gsettings set org.gnome.desktop.interface text-scaling-factor 1.33333
+	# generate swaylock background
+	echo "Enter ${USER}'s password to unlock this session:" \
+	 >${HOME}/.config/swaylock/locktext.txt
+	pango-view --background="#303030" --foreground="#f0f0f0" --font="Sans 10" \
+	 --dpi=128 -qo ${HOME}/.config/swaylock/locktext.png \
+	 ${HOME}/.config/swaylock/locktext.txt
+
+user-openbox: user-wm-common
+	${CP} home/xsession ${HOME}/.xsession
+	ln -sf .xsession ${HOME}/.xinitrc
+	${CP} -r home/config/openbox ${HOME}/.config/
+	${CP} home/config/picom.conf ${HOME}/.config/
+
+user-xfce: user-gui-common
+	${CP} -r home/config/xfce4 ${HOME}/.config/
 	# XFCE settings
-	xfconf-query -c thunar -n -t string -p /last-view -s ThunarCompactView
-	xfconf-query -c thunar -n -t string -p /last-compact-view-zoom-level -s THUNAR_ZOOM_LEVEL_38_PERCENT
-	xfconf-query -c thunar -n -t int -p /last-window-width -s 1200
-	xfconf-query -c thunar -n -t int -p /last-window-height -s 800
-	xfconf-query -c thunar -n -t int -p /last-separator-position -s 250
 	xfconf-query -c xfwm4 -n -t string -p /general/button_layout -s "O|HMC"
 	xfconf-query -c xfwm4 -n -t string -p /general/theme -s Default-4.4
 	xfconf-query -c xfwm4 -n -t string -p /general/title_alignment -s left
@@ -63,14 +103,10 @@ install-user: all
 	xfconf-query -c xsettings -n -t string -p /Net/ThemeName -s Old-Style-128dpi
 	xfconf-query -c xsettings -n -t string -p /Xft/HintStyle -s hintnone
 	xfconf-query -c xsettings -n -t int -p /Xft/DPI -s 128
-	# generate swaylock background
-	echo "Enter ${USER}'s password to unlock this session:" \
-	 >${HOME}/.config/swaylock/locktext.txt
-	pango-view --background="#303030" --foreground="#f0f0f0" --font="Sans 10" \
-	 --dpi=128 -qo ${HOME}/.config/swaylock/locktext.png \
-	 ${HOME}/.config/swaylock/locktext.txt
 
-install-system:
+user-all: user-dev user-scripts user-labwc user-openbox user-xfce
+
+system:
 	find etc -type d -exec install -d ${DESTDIR}/\{\} \;
 	find etc -type f -exec install -m644 \{\} ${DESTDIR}/\{\} \;
 	find usr -type d -exec install -d ${DESTDIR}/\{\} \;

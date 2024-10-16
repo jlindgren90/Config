@@ -82,12 +82,7 @@ depends=(
     'tumbler'        # thunar (thumbnails)
 )
 
-build() {
-    cd ..
-    make
-}
-
 package() {
     cd ..
-    make DESTDIR="${pkgdir}" install-system
+    make DESTDIR="${pkgdir}" system
 }
