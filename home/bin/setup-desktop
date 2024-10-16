@@ -1,9 +1,0 @@
-#!/bin/sh
-
-if test -n "$WAYLAND_DISPLAY" ; then
-    echo "This script requires X11"
-    exit 1
-else
-    setup-displays
-    feh --bg-fill "$HOME/.wallpaper.jpg"
-fi

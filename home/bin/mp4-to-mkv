@@ -1,5 +1,0 @@
-#!/bin/sh
-
-for i in "$@" ; do
-    ffmpeg -i "$i" -acodec mp3 -vcodec libx264 -crf 21 "${i%.mp4}".mkv
-done

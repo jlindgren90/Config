@@ -1,7 +1,3 @@
-pkg/
-src/
-*.pkg.tar.*
-
 # binaries
 tools/clutter
 tools/quick-settings
