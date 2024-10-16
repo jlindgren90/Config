@@ -86,7 +86,7 @@ user-wm-common: gui-tools user-gui-common
 	rm -f ${HOME}/bin/xlogout
 	${CP} tools/xlogout ${HOME}/bin/xlogout
 	${CP} home/bin/{disable,enable,query}-screensaver ${HOME}/bin/
-	${CP} home/bin/{run-once,setup-desktop} ${HOME}/bin/
+	${CP} home/bin/run-once ${HOME}/bin/
 	${CP} -r home/config/volumeicon ${HOME}/.config/
 	${CP} home/config/{qmpanel.ini,quick-settings.ini} ${HOME}/.config/
 	${CP} home/config/{xresources,xsettings} ${HOME}/.config/
@@ -96,7 +96,6 @@ user-wm-common: gui-tools user-gui-common
 user-labwc: user-wm-common
 	${CP} home/bin/wlscreenshot ${HOME}/bin/
 	${CP} -r home/config/{kanshi,labwc,swayidle,swaylock} ${HOME}/.config/
-	${CP} home/config/kanshi/config-dual ${HOME}/.config/kanshi/config
 	# GTK/Wayland settings
 	gsettings set org.gnome.desktop.interface cursor-theme default
 	gsettings set org.gnome.desktop.interface font-antialiasing rgba
@@ -136,15 +135,3 @@ user-all: user-core user-dev user-scripts user-labwc user-openbox user-xfce
 system:
 	find etc -type d -exec install -d ${DESTDIR}/\{\} \;
 	find etc -type f -exec install -m644 \{\} ${DESTDIR}/\{\} \;
-	find usr -type d -exec install -d ${DESTDIR}/\{\} \;
-	find usr/bin -type f -exec install \{\} ${DESTDIR}/\{\} \;
-	find usr/lib -type f -exec install -m644 \{\} ${DESTDIR}/\{\} \;
-	chmod 0755 ${DESTDIR}/etc/acpi/headphone.sh
-	chown root:audio ${DESTDIR}/etc/asound.conf
-	chmod 0664 ${DESTDIR}/etc/asound.conf
-	touch ${DESTDIR}/etc/brightness-override
-	chown root:video ${DESTDIR}/etc/brightness-override
-	chmod 0664 ${DESTDIR}/etc/brightness-override
-	touch ${DESTDIR}/etc/dual-displays
-	chown root:video ${DESTDIR}/etc/dual-displays
-	chmod 0664 ${DESTDIR}/etc/dual-displays
