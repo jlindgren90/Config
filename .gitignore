@@ -1,6 +1,16 @@
 pkg/
 src/
 *.pkg.tar.*
+
+# binaries
 tools/clutter
 tools/quick-settings
 tools/xlogout
+
+# generated
+home/config/labwc/environment
+home/config/labwc/rc.xml
+home/config/openbox/rc.xml
+home/config/xprofile
+home/config/xresources
+home/config/xsettings

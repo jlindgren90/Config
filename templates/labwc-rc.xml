@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <labwc_config>
   <theme>
-    <name>Old-Style-128dpi</name>
+    <name>${THEME}</name>
     <icon>gnome</icon>
     <cornerRadius>0</cornerRadius>
     <font place="ActiveWindow">
       <name>Sans</name>
-      <size>13</size>
+      <size>${FONT_DEV_PTS}</size>
       <weight>Bold</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveWindow">
       <name>Sans</name>
-      <size>13</size>
+      <size>${FONT_DEV_PTS}</size>
       <weight>Bold</weight>
       <slant>Normal</slant>
     </font>
     <font place="MenuItem">
       <name>Sans</name>
-      <size>13</size>
+      <size>${FONT_DEV_PTS}</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="OSD">
       <name>Sans</name>
-      <size>13</size>
+      <size>${FONT_DEV_PTS}</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>

@@ -4,6 +4,29 @@ GUI_CFLAGS = $(shell pkg-config --cflags glib-2.0 Qt6Widgets) -fPIC
 GUI_LIBS = $(shell pkg-config --libs glib-2.0 Qt6Widgets)
 CP = cp --preserve=mode
 
+ifeq (${DPI}, 128)
+	export FONT_DPI=128
+	export FONT_DPIx1024=131072
+	export FONT_SCALE=1.3333
+	export FONT_DEV_PTS=13
+	export THEME=Old-Style-128dpi
+else
+	export FONT_DPI=96
+	export FONT_DPIx1024=99328
+	export FONT_SCALE=1
+	export FONT_DEV_PTS=10
+	export THEME=Old-Style
+endif
+
+gen:
+	mkdir -p home/config/openbox
+	envsubst < templates/environment > home/config/labwc/environment
+	envsubst < templates/labwc-rc.xml > home/config/labwc/rc.xml
+	envsubst < templates/openbox-rc.xml > home/config/openbox/rc.xml
+	envsubst < templates/xprofile > home/config/xprofile
+	envsubst < templates/xresources > home/config/xresources
+	envsubst < templates/xsettings > home/config/xsettings
+
 core-tools: tools/clutter
 
 gui-tools: tools/quick-settings tools/xlogout
@@ -41,7 +64,7 @@ user-dev: user-dirs
 user-scripts: user-dirs
 	${CP} home/bin/* ${HOME}/bin/
 
-user-gui-common: user-dirs
+user-gui-common: gen user-dirs
 	${CP} -r home/config/{gtk-3.0,qt5ct,qt6ct} ${HOME}/.config/
 	mkdir -p ${HOME}/.config/xfce4
 	${CP} -r home/config/xfce4/terminal ${HOME}/.config/xfce4/
@@ -74,14 +97,14 @@ user-labwc: user-wm-common
 	gsettings set org.gnome.desktop.interface cursor-theme default
 	gsettings set org.gnome.desktop.interface font-antialiasing rgba
 	gsettings set org.gnome.desktop.interface font-name "Sans 10"
-	gsettings set org.gnome.desktop.interface gtk-theme Old-Style-128dpi
+	gsettings set org.gnome.desktop.interface gtk-theme ${THEME}
 	gsettings set org.gnome.desktop.interface icon-theme gnome
-	gsettings set org.gnome.desktop.interface text-scaling-factor 1.33333
+	gsettings set org.gnome.desktop.interface text-scaling-factor ${FONT_SCALE}
 	# generate swaylock background
 	echo "Enter ${USER}'s password to unlock this session:" \
 	 >${HOME}/.config/swaylock/locktext.txt
 	pango-view --background="#303030" --foreground="#f0f0f0" --font="Sans 10" \
-	 --dpi=128 -qo ${HOME}/.config/swaylock/locktext.png \
+	 --dpi=${FONT_DPI} -qo ${HOME}/.config/swaylock/locktext.png \
 	 ${HOME}/.config/swaylock/locktext.txt
 
 user-openbox: user-wm-common
@@ -100,9 +123,9 @@ user-xfce: user-gui-common
 	xfconf-query -c xsettings -n -t string -p /Gtk/CursorThemeName -s default
 	xfconf-query -c xsettings -n -t string -p /Gtk/FontName -s "Sans 10"
 	xfconf-query -c xsettings -n -t string -p /Net/IconThemeName -s gnome
-	xfconf-query -c xsettings -n -t string -p /Net/ThemeName -s Old-Style-128dpi
+	xfconf-query -c xsettings -n -t string -p /Net/ThemeName -s ${THEME}
 	xfconf-query -c xsettings -n -t string -p /Xft/HintStyle -s hintnone
-	xfconf-query -c xsettings -n -t int -p /Xft/DPI -s 128
+	xfconf-query -c xsettings -n -t int -p /Xft/DPI -s ${FONT_DPI}
 
 user-all: user-dev user-scripts user-labwc user-openbox user-xfce
 
@@ -112,9 +135,6 @@ system:
 	find usr -type d -exec install -d ${DESTDIR}/\{\} \;
 	find usr/bin -type f -exec install \{\} ${DESTDIR}/\{\} \;
 	find usr/lib -type f -exec install -m644 \{\} ${DESTDIR}/\{\} \;
-	install -d -m750 ${DESTDIR}/root
-	install -m640 root/Xdefaults ${DESTDIR}/root/.Xdefaults
-	install -m640 root/gtkrc-2.0 ${DESTDIR}/root/.gtkrc-2.0
 	chmod 0755 ${DESTDIR}/etc/acpi/headphone.sh
 	chown root:audio ${DESTDIR}/etc/asound.conf
 	chmod 0664 ${DESTDIR}/etc/asound.conf

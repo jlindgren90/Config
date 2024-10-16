@@ -1,7 +1,7 @@
 Xft.antialias: 1
 Xft.hintstyle: hintnone
 Xft.rgba: rgb
-Xft.dpi: 128
+Xft.dpi: ${FONT_DPI}
 
 *.faceName: monospace:size=9
 *.geometry: 120x40
