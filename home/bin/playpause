@@ -1,6 +1,4 @@
 #!/bin/sh
-if pgrep -x audacious > /dev/null ; then
+if pgrep -u "$USER" audacious > /dev/null ; then
     exec audtool playback-playpause
-else
-    exec gdbus call --session --dest io.github.Pithos --object-path /org/mpris/MediaPlayer2 --method org.mpris.MediaPlayer2.Player.PlayPause
 fi
