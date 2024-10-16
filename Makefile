@@ -53,6 +53,10 @@ install-user: all
 	xfconf-query -c thunar -n -t int -p /last-window-width -s 1200
 	xfconf-query -c thunar -n -t int -p /last-window-height -s 800
 	xfconf-query -c thunar -n -t int -p /last-separator-position -s 250
+	xfconf-query -c xfwm4 -n -t string -p /general/button_layout -s "O|HMC"
+	xfconf-query -c xfwm4 -n -t string -p /general/theme -s Default-4.4
+	xfconf-query -c xfwm4 -n -t string -p /general/title_alignment -s left
+	xfconf-query -c xfwm4 -n -t string -p /general/title_font -s "Sans Bold 10"
 	xfconf-query -c xsettings -n -t string -p /Gtk/CursorThemeName -s default
 	xfconf-query -c xsettings -n -t string -p /Gtk/FontName -s "Sans 10"
 	xfconf-query -c xsettings -n -t string -p /Net/IconThemeName -s gnome
