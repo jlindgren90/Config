@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. ~/.config/xprofile
+
+exec /bin/sh /etc/xdg/xfce4/xinitrc "$@"
