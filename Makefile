@@ -4,6 +4,8 @@ GUI_CFLAGS = $(shell pkg-config --cflags glib-2.0 Qt6Widgets) -fPIC
 GUI_LIBS = $(shell pkg-config --libs glib-2.0 Qt6Widgets)
 CP = cp --preserve=mode
 
+SHELL := /bin/bash
+
 ifeq (${DPI}, 128)
 	export FONT_DPI=128
 	export FONT_DPIx1024=131072
