@@ -1,6 +1,0 @@
-SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="min_power"
-
-SUBSYSTEM=="net", KERNEL=="en*", RUN+="/usr/bin/ethtool -s %k wol d"
-SUBSYSTEM=="net", KERNEL=="wl*", RUN+="/usr/bin/iw dev %k set power_save on"
-
-SUBSYSTEM=="power_supply", RUN+="/usr/bin/adjust-brightness"
