@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=XTerm
-Exec=xterm
-Icon=xterm-color_48x48
-StartupWMClass=XTerm
-NoDisplay=true
