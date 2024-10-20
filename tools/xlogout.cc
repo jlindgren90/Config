@@ -65,9 +65,9 @@ int main(int argc, char **argv)
 
     QObject::connect(logout, &QPushButton::clicked, [pid]() { try_kill(pid); });
     QObject::connect(shutdown, &QPushButton::clicked,
-                     []() { try_run("poweroff"); });
+                     []() { try_run("/sbin/poweroff"); });
     QObject::connect(reboot, &QPushButton::clicked,
-                     []() { try_run("reboot"); });
+                     []() { try_run("/sbin/reboot"); });
     QObject::connect(msgbox, &QObject::destroyed, QApplication::quit);
 
     return app.exec();
