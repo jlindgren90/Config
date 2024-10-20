@@ -94,7 +94,7 @@ user-wm-common: gui-tools user-gui-common
 
 user-labwc: user-wm-common
 	${CP} home/bin/wlscreenshot ${HOME}/bin/
-	${CP} -r home/config/{labwc,swayidle,swaylock} ${HOME}/.config/
+	${CP} -r home/config/{kanshi,labwc,swayidle,swaylock} ${HOME}/.config/
 	# GTK/Wayland settings
 	gsettings set org.gnome.desktop.interface cursor-theme default
 	gsettings set org.gnome.desktop.interface font-antialiasing rgba
