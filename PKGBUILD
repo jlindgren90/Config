@@ -22,6 +22,7 @@ depends=(
     'alsa-utils'
     'gmrun'
     'maim'
+    'playerctl'
     'wmctrl'
     'xclip'
 

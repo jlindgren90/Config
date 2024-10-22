@@ -101,29 +101,34 @@
         <command>sh -c "wmctrl -x -a galculator || exec galculator"</command>
       </action>
     </keybind>
-    <keybind key="XF86AudioPlay">
+    <keybind key="XF86AudioPlay" allowWhenLocked="yes">
       <action name="Execute">
-        <command>playpause</command>
+        <command>playerctl play-pause</command>
       </action>
     </keybind>
-    <keybind key="XF86AudioRaiseVolume">
+    <keybind key="XF86AudioPrev" allowWhenLocked="yes">
+      <action name="Execute">
+        <command>playerctl previous</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioNext" allowWhenLocked="yes">
+      <action name="Execute">
+        <command>playerctl next</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume" allowWhenLocked="yes">
       <action name="Execute">
         <command>amixer set Master 3%+</command>
       </action>
     </keybind>
-    <keybind key="XF86AudioLowerVolume">
+    <keybind key="XF86AudioLowerVolume" allowWhenLocked="yes">
       <action name="Execute">
         <command>amixer set Master 3%-</command>
       </action>
     </keybind>
-    <keybind key="XF86AudioMute">
+    <keybind key="XF86AudioMute" allowWhenLocked="yes">
       <action name="Execute">
         <command>amixer set Master toggle</command>
-      </action>
-    </keybind>
-    <keybind key="XF86HomePage">
-      <action name="Execute">
-        <command>audtool --playback-stop</command>
       </action>
     </keybind>
     <keybind key="C-A-Delete">
