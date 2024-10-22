@@ -1,4 +1,0 @@
-#!/bin/sh
-if pgrep -u "$USER" audacious > /dev/null ; then
-    exec audtool playback-playpause
-fi

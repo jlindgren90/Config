@@ -217,6 +217,11 @@
         <command>xfce4-terminal</command>
       </action>
     </keybind>
+    <keybind key="W-w">
+      <action name="Execute">
+        <command>firefox</command>
+      </action>
+    </keybind>
     <keybind key="Print">
       <action name="Execute">
         <command>sh -c "maim -uso -b 2 | xclip -selection clipboard -t image/png"</command>
@@ -234,7 +239,7 @@
     </keybind>
     <keybind key="XF86AudioPlay">
       <action name="Execute">
-        <command>playpause</command>
+        <command>playerctl play-pause</command>
       </action>
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
@@ -254,7 +259,7 @@
     </keybind>
     <keybind key="XF86HomePage">
       <action name="Execute">
-        <command>audtool --playback-stop</command>
+        <command>playerctl stop</command>
       </action>
     </keybind>
     <keybind key="C-A-Delete">
@@ -262,7 +267,7 @@
         <command>j-login-lock</command>
       </action>
     </keybind>
-    <keybind key="W-Q">
+    <keybind key="W-q">
       <action name="Execute">
         <command>xlogout</command>
       </action>

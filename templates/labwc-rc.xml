@@ -103,7 +103,7 @@
     </keybind>
     <keybind key="XF86AudioPlay">
       <action name="Execute">
-        <command>playpause</command>
+        <command>playerctl play-pause</command>
       </action>
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
@@ -123,7 +123,7 @@
     </keybind>
     <keybind key="XF86HomePage">
       <action name="Execute">
-        <command>audtool --playback-stop</command>
+        <command>playerctl stop</command>
       </action>
     </keybind>
     <keybind key="C-A-Delete">
