@@ -4,14 +4,14 @@ profile {
 
 profile {
     output eDP-1 disable
-    output DP-3 enable position 0,0
-    output DP-4 enable position 2560,0
+    output DP-3 enable mode 2560x1440 position 0,0
+    output DP-4 enable mode 2560x1440 position 2560,0
 }
 
 profile {
     output eDP-1 disable
-    output DP-5 enable position 0,0
-    output DP-6 enable position 2560,0
+    output DP-5 enable mode 2560x1440 position 0,0
+    output DP-6 enable mode 2560x1440 position 2560,0
 }
 
 profile {
