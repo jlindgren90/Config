@@ -129,7 +129,7 @@ user-xfce: user-gui-common
 	xfconf-query -c xsettings -n -t string -p /Xft/HintStyle -s hintnone
 	xfconf-query -c xsettings -n -t int -p /Xft/DPI -s ${FONT_DPI}
 
-user-all: user-dev user-scripts user-labwc user-openbox user-xfce
+user-all: user-core user-dev user-scripts user-labwc user-openbox user-xfce
 
 system:
 	find etc -type d -exec install -d ${DESTDIR}/\{\} \;
