@@ -1,5 +1,6 @@
 #!/bin/sh
 
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true"
 export GTK_OVERLAY_SCROLLING=0
 export FREETYPE_PROPERTIES="cff:no-stem-darkening=0"
 export QT_ENABLE_HIGHDPI_SCALING=0
