@@ -93,12 +93,12 @@
     </keybind>
     <keybind key="C-equal">
       <action name="Execute">
-        <command>sh -c "wmctrl -x -a galculator || exec galculator"</command>
+        <command>sh -c "wlrctl window focus galculator || exec galculator"</command>
       </action>
     </keybind>
     <keybind key="XF86Calculator">
       <action name="Execute">
-        <command>sh -c "wmctrl -x -a galculator || exec galculator"</command>
+        <command>sh -c "wlrctl window focus galculator || exec galculator"</command>
       </action>
     </keybind>
     <keybind key="XF86AudioPlay" allowWhenLocked="yes">
