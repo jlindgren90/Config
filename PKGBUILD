@@ -23,6 +23,7 @@ depends=(
     'gmrun'
     'maim'
     'playerctl'
+    'wlrctl'
     'wmctrl'
     'xclip'
 
