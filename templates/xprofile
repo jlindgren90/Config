@@ -1,7 +1,9 @@
 #!/bin/sh
 
-export GTK_OVERLAY_SCROLLING=0
 export FREETYPE_PROPERTIES="cff:no-stem-darkening=0"
+export GTK_A11Y=none
+export GTK_OVERLAY_SCROLLING=0
+export NO_AT_BRIDGE=1
 export QT_ENABLE_HIGHDPI_SCALING=0
 export QT_FONT_DPI=${FONT_DPI}
 export QT_LOGGING_RULES="*.debug=false"
