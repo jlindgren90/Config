@@ -68,7 +68,7 @@ user-scripts: user-dirs
 	${CP} home/bin/* ${HOME}/bin/
 
 user-gui-common: gen user-dirs
-	${CP} -r home/config/{gtk-3.0,qt5ct,qt6ct} ${HOME}/.config/
+	${CP} -r home/config/{gtk-3.0,gtk-4.0,qt5ct,qt6ct} ${HOME}/.config/
 	mkdir -p ${HOME}/.config/xfce4
 	${CP} -r home/config/xfce4/terminal ${HOME}/.config/xfce4/
 	${CP} home/config/xprofile ${HOME}/.config/
@@ -97,7 +97,7 @@ user-labwc: user-wm-common
 	${CP} home/bin/wlscreenshot ${HOME}/bin/
 	${CP} -r home/config/{kanshi,labwc,swayidle,swaylock} ${HOME}/.config/
 	# GTK/Wayland settings
-	gsettings set org.gnome.desktop.interface cursor-theme default
+	gsettings set org.gnome.desktop.interface cursor-theme DMZ-White
 	gsettings set org.gnome.desktop.interface font-antialiasing rgba
 	gsettings set org.gnome.desktop.interface font-name "Sans 10"
 	gsettings set org.gnome.desktop.interface gtk-theme ${THEME}
