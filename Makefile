@@ -60,6 +60,7 @@ user-core: core-tools user-dirs
 	${CP} tools/clutter ${HOME}/bin/clutter
 
 user-dev: user-dirs
+	${CP} home/bin/remerge ${HOME}/bin/
 	${CP} home/clang-format ${HOME}/.clang-format
 	${CP} -r home/config/{geany,QtProject} ${HOME}/.config/
 
