@@ -1,0 +1,3 @@
+#!/bin/sh
+dpkg-divert --package config --add --rename \
+  --divert /etc/lightdm/lightdm-gtk-greeter.conf.orig /etc/lightdm/lightdm-gtk-greeter.conf
