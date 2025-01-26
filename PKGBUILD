@@ -7,7 +7,7 @@ install=config.install
 depends=(
     # apps
     'galculator'
-    'keepassxc'
+    'geany'
     'thunar'
     'xfce4-terminal'
 
@@ -81,6 +81,7 @@ depends=(
 
     # optional deps
     'gnome-keyring'  # network-manager (wifi passwords)
+    'gvfs'           # thunar (mounting)
     'tumbler'        # thunar (thumbnails)
 )
 
