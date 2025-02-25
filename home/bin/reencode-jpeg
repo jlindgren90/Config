@@ -2,7 +2,7 @@
 
 for i in "$@" ; do
     exiftran -i -a "$i"
-    convert "$i" -quality 90% "$i-new"
+    magick "$i" -quality 90% "$i-new"
     oldsize=`stat --printf="%s" "$i"`
     newsize=`stat --printf="%s" "$i-new"`
     if test $newsize -lt $((oldsize*9/10)) ; then

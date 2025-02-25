@@ -85,6 +85,11 @@ depends=(
     'tumbler'        # thunar (thumbnails)
 )
 
+optdepends=(
+    'ffmpeg'               # mp4-to-mkv
+    'perl-image-exiftool'  # date-images
+)
+
 package() {
     cd ..
     make DESTDIR="${pkgdir}" system
