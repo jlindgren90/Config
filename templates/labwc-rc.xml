@@ -108,6 +108,21 @@
         <command>firefox --kiosk youtube.com</command>
       </action>
     </keybind>
+    <keybind key="W-b">
+      <action name="Execute">
+        <command>blueman-manager</command>
+      </action>
+    </keybind>
+    <keybind key="W-j">
+      <action name="Execute">
+        <command>xfce4-terminal -x joycond-cemuhook</command>
+      </action>
+    </keybind>
+    <keybind key="W-c">
+      <action name="Execute">
+        <command>cemu</command>
+      </action>
+    </keybind>
     <keybind key="W-q">
       <action name="Execute">
         <command>xlogout</command>
