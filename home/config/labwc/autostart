@@ -1,11 +1,9 @@
-kanshi &
-swaybg -i ~/.wallpaper.jpg &
 swayidle -w &
 
 xrdb ~/.config/xresources
 xsettingsd -c ~/.config/xsettings &
 
 /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd &
-/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-qmpanel &
+amixer -c1 sset 'IEC958,0' on
+kodi -fs &
