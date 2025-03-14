@@ -33,6 +33,7 @@
     </font>
   </theme>
   <keyboard>
+    <numlock>on</numlock>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
       <action name="Close"/>
