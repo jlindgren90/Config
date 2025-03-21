@@ -3,5 +3,7 @@ swayidle -w &
 xrdb ~/.config/xresources
 xsettingsd -c ~/.config/xsettings &
 
+/usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd &
+
 amixer -c1 sset 'IEC958,0' on
 kodi -fs &
