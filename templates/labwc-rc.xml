@@ -32,6 +32,12 @@
       <slant>Normal</slant>
     </font>
   </theme>
+  <windowSwitcher>
+    <fields>
+      <field content="icon" width="5%" />
+      <field content="title" width="95%" />
+    </fields>
+  </windowSwitcher>
   <keyboard>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
