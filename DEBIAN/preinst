@@ -1,3 +1,10 @@
 #!/bin/sh
 dpkg-divert --package config --add --rename \
   --divert /etc/lightdm/lightdm-gtk-greeter.conf.orig /etc/lightdm/lightdm-gtk-greeter.conf
+
+if grep -q Vanilla-DMZ /usr/share/icons/default/index.theme ; then
+    echo "*** cursor theme already set to Vanilla-DMZ"
+else
+    cp --preserve=mode /usr/share/icons/default/index.theme /usr/share/icons/default/index.theme~
+    sed -i 's/Adwaita/Vanilla-DMZ/' /usr/share/icons/default/index.theme
+fi
