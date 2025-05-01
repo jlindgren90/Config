@@ -65,6 +65,7 @@ depends=(
     'swaylock'
     'vulkan-driver'
     'wlopm'
+    'xdg-desktop-portal-wlr'
 
     # pipewire
     'pipewire-audio'
