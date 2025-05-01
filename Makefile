@@ -140,8 +140,6 @@ system:
 	find usr/bin -type f -exec install \{\} ${DESTDIR}/\{\} \;
 	find usr/lib -type f -exec install -m644 \{\} ${DESTDIR}/\{\} \;
 	chmod 0755 ${DESTDIR}/etc/acpi/headphone.sh
-	chown root:audio ${DESTDIR}/etc/asound.conf
-	chmod 0664 ${DESTDIR}/etc/asound.conf
 	touch ${DESTDIR}/etc/brightness-override
 	chown root:video ${DESTDIR}/etc/brightness-override
 	chmod 0664 ${DESTDIR}/etc/brightness-override

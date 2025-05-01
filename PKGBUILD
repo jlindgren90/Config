@@ -29,6 +29,7 @@ depends=(
 
     # quick-settings
     'aeq'
+    'pavucontrol'
     'xorg-xset'
 
     # theme
@@ -64,6 +65,11 @@ depends=(
     'swaylock'
     'vulkan-driver'
     'wlopm'
+
+    # pipewire
+    'pipewire-audio'
+    'pipewire-pulse'
+    'wireplumber'
 
     # acpi/udev
     'acpid'
