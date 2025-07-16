@@ -128,17 +128,17 @@
     </keybind>
     <keybind key="XF86AudioRaiseVolume" allowWhenLocked="yes">
       <action name="Execute">
-        <command>amixer set Master 3%+</command>
+        <command>volctl up</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume" allowWhenLocked="yes">
       <action name="Execute">
-        <command>amixer set Master 3%-</command>
+        <command>volctl down</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute" allowWhenLocked="yes">
       <action name="Execute">
-        <command>amixer set Master toggle</command>
+        <command>volctl toggle</command>
       </action>
     </keybind>
     <keybind key="C-A-Delete">

@@ -86,7 +86,7 @@ user-wm-common: gui-tools user-gui-common
 	rm -f ${HOME}/bin/xlogout
 	${CP} tools/xlogout ${HOME}/bin/xlogout
 	${CP} home/bin/{disable,enable,query}-screensaver ${HOME}/bin/
-	${CP} home/bin/{run-once,setup-desktop} ${HOME}/bin/
+	${CP} home/bin/{run-once,setup-desktop,volctl} ${HOME}/bin/
 	${CP} -r home/config/volumeicon ${HOME}/.config/
 	${CP} home/config/{qmpanel.ini,quick-settings.ini} ${HOME}/.config/
 	${CP} home/config/{xresources,xsettings} ${HOME}/.config/

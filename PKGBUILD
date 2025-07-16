@@ -23,12 +23,14 @@ depends=(
     'gmrun'
     'maim'
     'playerctl'
+    'python' # volctl
     'wlrctl'
     'wmctrl'
     'xclip'
 
     # quick-settings
     'aeq'
+    'jq'
     'pavucontrol'
     'xorg-xset'
 
