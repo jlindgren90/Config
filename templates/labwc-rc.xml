@@ -172,7 +172,7 @@
     <device category="default">
       <dragLock>no</dragLock>
     </device>
-    <device category="Logitech Wireless Mouse">
+    <device category="non-touch">
       <pointerSpeed>-0.5</pointerSpeed>
     </device>
   </libinput>
