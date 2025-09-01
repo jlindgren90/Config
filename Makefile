@@ -96,7 +96,7 @@ user-wm-common: gui-tools user-gui-common
 user-labwc: user-wm-common
 	${CP} home/bin/wlscreenshot ${HOME}/bin/
 	${CP} -r home/config/{kanshi,labwc,swayidle,swaylock} ${HOME}/.config/
-	${CP} home/config/kanshi/config-dual ${HOME}/.config/kanshi/config
+	${CP} home/config/kanshi/config-all ${HOME}/.config/kanshi/config
 	# GTK/Wayland settings
 	gsettings set org.gnome.desktop.interface cursor-theme default
 	gsettings set org.gnome.desktop.interface font-antialiasing rgba
@@ -143,6 +143,3 @@ system:
 	touch ${DESTDIR}/etc/brightness-override
 	chown root:video ${DESTDIR}/etc/brightness-override
 	chmod 0664 ${DESTDIR}/etc/brightness-override
-	touch ${DESTDIR}/etc/dual-displays
-	chown root:video ${DESTDIR}/etc/dual-displays
-	chmod 0664 ${DESTDIR}/etc/dual-displays

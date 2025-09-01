@@ -1,6 +1,7 @@
 #!/bin/bash
 
-read -r DUALDISPLAYS < /etc/dual-displays
+# hard-coded for now
+DUALDISPLAYS=1
 
 setup_two() {
   if test "$DUALDISPLAYS" == 1 ; then
