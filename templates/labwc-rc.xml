@@ -39,7 +39,12 @@
     <numlock>on</numlock>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
-      <action name="Close"/>
+      <action name="If">
+        <query identifier="kodi"/>
+        <else>
+          <action name="Close"/>
+        </else>
+      </action>
     </keybind>
     <keybind key="A-F11">
       <action name="ToggleFullscreen"/>
