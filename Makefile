@@ -98,6 +98,7 @@ user-labwc: user-wm-common
 	${CP} -r home/config/{kanshi,labwc,swayidle,swaylock} ${HOME}/.config/
 	${CP} home/config/kanshi/config-all ${HOME}/.config/kanshi/config
 	# GTK/Wayland settings
+	gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 	gsettings set org.gnome.desktop.interface cursor-theme default
 	gsettings set org.gnome.desktop.interface font-antialiasing rgba
 	gsettings set org.gnome.desktop.interface font-name "Sans 10"
